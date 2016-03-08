@@ -1,0 +1,35 @@
+CREATE TABLE User
+(
+  id INTEGER NOT NULL AUTO_INCREMENT
+  ,username VARCHAR(45) NOT NULL UNIQUE
+  ,name VARCHAR(45)
+  ,surname VARCHAR(45)
+  ,email VARCHAR(45) NOT NULL UNIQUE
+  ,password VARCHAR(45) NOT NULL
+  ,profilbild VARCHAR(45)
+  ,PRIMARY KEY (id)
+);
+
+CREATE TABLE Comments
+(
+  id INTEGER NOT NULL AUTO_INCREMENT
+  ,text VARCHAR(500) NOT NULL
+  ,date VARCHAR(45)
+  ,user_id INTEGER NOT NULL
+  ,entry_id INTEGER NOT NULL
+  ,PRIMARY KEY (id)
+  ,FOREIGN KEY (user_id) REFERENCES User(id)
+  ,FOREIGN KEY (entry_id) REFERENCES Entrys(id)
+);
+
+CREATE TABLE Entrys
+(
+  id INTEGER NOT NULL AUTO_INCREMENT
+  ,text VARCHAR(1000) NOT NULL
+  ,date VARCHAR(45) NOT NULL
+  ,bild VARCHAR(45)
+  ,likes INTEGER
+  ,user_id INTEGER NOT NULL
+  ,PRIMARY KEY (id)
+  ,FOREIGN KEY (user_id) REFERENCES User(id)
+);
