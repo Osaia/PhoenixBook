@@ -3,3 +3,9 @@
 body {
   padding-top: 50px;
 }
+
+.picture-preview{
+  border-color: black;
+  border-radius: 5px;
+  border-width: 2px;
+}
