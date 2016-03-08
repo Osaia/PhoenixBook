@@ -1,6 +1,6 @@
         <hr>
-        <footer>
-          <p>&copy; Jessica Dominguez <span class="sideSpacing">|</span> Louis Herren <span class="sideSpacing">|</span> Janik Indermühle</p>
+        <footer >
+          <p id="credits">&copy; Jessica Dominguez <span class="sideSpacing">|</span> Louis Herren <span class="sideSpacing">|</span> Janik Indermühle</p>
         </footer>
     </div>
 

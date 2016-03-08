@@ -10,7 +10,7 @@
             </div>
 
             <div class="item">
-                <img src="view/css/img/flower_2.jpeg" alt="Chania">
+                <img src="view/css/img/flower_2.jpg" alt="Chania">
             </div>
 
             <div class="item">
@@ -24,10 +24,28 @@
             <div class="item">
                 <img src="view/css/img/flower_5.jpg" alt="Flower">
             </div>
+        <div id="loginWrapper">
 
-           <div id="loginWrapper">
-               Helloooo From here
-           </div>
+            <div id="login">
+                <form class="form" method="post" action="">
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <input type="text" class="form-control" placeholder="Username" name="username"/>
+                        </div>
+                        <div class="col-md-12">
+                            <input type="password" class="form-control" placeholder="Password" name="password"/>
+                        </div>
+                        <div class="col-md-12">
+                            <input type="submit" class="form-control" name="submit"/>
+                        </div>
+                        <span>No account yet? <a href="/user/create">Register Now</a></span>
+
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
         </div>
 
     </div>
