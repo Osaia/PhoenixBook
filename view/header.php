@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title><?= $title ?> | Bbc MVC</title>
+    <!-- Google Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300italic,400italic,600' rel='stylesheet' type='text/css'>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300italic,400italic,600' rel='stylesheet' type='text/css'>
+    <link href="css/full-slider.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="/view/css/style.css" rel="stylesheet">
@@ -40,13 +41,12 @@
             <li><a href="/user">Benutzer</a></li>
             <li><a href="/user/create">Register</a></li>
             <li><a href="/entries">Entries</a></li>
-            <li><a href="/Profile">Login</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
 
-    <div class="container">
+    <div class="">
 
 
-    <h1><?= $heading ?></h1>
+<!--    <h1>--><?//= $heading ?><!--</h1>-->
