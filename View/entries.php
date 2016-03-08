@@ -1,17 +1,19 @@
- <div class="col-xs-9 col-ld-9">
-     <div class="col-xs-9 col-ld-9 col-md-offset-1" id="entries-container">
-        <a href="#">
-            <div class="entries">
-                <p>name der person</p>
-                <div class="entries-footer">
+<div class="col-xs-12 col-ld-12">
+    <div class="col-xs-9 col-ld-9">
+         <div class="col-xs-9 col-ld-9 col-md-offset-1" id="entries-container">
+            <a href="#">
+                <div class="entries">
+                    <p>name der person</p>
+                    <div class="entries-footer">
 
+                    </div>
                 </div>
-            </div>
-        </a>
+            </a>
+         </div>
      </div>
- </div>
-<div class="col-xs-3 col-ld-3">
+    <div class="col-xs-3 col-ld-3">
 
+    </div>
 </div>
 <?php
 
