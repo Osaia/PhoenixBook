@@ -1,8 +1,40 @@
 @CHARSET "ISO-8859-1";
 
+
+/* GENERAL
+*************************************************/
 body {
   padding-top: 50px;
+  font-family: 'Open Sans', sans-serif;
 }
+
+h1,h2,h3,h4{
+  margin-left: 20px;
+}
+
+/* TEXT STYLING: Jessica
+*************************************************/
+#navBrand{
+  position: absolute;
+  left: 20px;
+
+  font-size: 30px;
+}
+
+.sideSpacing{
+  margin: 0 20px;
+}
+
+#loginWrapper{
+  position: absolute;
+  left: 35vw;
+  top: 10vw;
+  height: 30vw;
+  width: 30vw;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+
 
 .picture-preview{
   border-color: black;
