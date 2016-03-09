@@ -94,6 +94,23 @@ $(function (){
 });
 
 
+/* Entries: Sidebar
+ ****************************************/
+
+$(document).ready(function(){
+    $("#sidebar-big").hide();
+    $("#sidebar-small").show();
+    $("#open").click(function(){
+        $("#sidebar-big").toggle(1000);
+        $("#sidebar-small").toggle(1000);
+    });
+    $("#close").click(function(){
+        $("#sidebar-big").toggle(1000);
+        $("#sidebar-small").toggle(1000);
+    });
+});
+
+
 
 
 

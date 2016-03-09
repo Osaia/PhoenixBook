@@ -129,6 +129,15 @@ h1,h2,h3,h4{
   padding: 10px;
 }
 
+.btn-sidebar{
+  padding-bottom: 20px;
+}
+
+.txtarea{
+  width: 100%;
+  height: 300px;
+}
+
 .entries-footer {
 
 }

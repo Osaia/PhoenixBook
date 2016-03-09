@@ -19,12 +19,27 @@
              </div>
             <div class="col-xs-3 col-ld-3 sidebar-top">
                 <div id="sidebar-big" class="col-xs-10 col-ld-10">
-                    <button type="button" class="btn btn-default" aria-label="Left Align">
-                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                    </button>
+                    <div class="btn-open-sidebar">
+                        <button id="open" type="button" class="btn btn-default" aria-label="Left Align">
+                            <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                    <div class="col-xs-10 col-ld-10 col-md-offset-1">
+                        <textarea class="txtarea" placeholder="Text..."></textarea>
+                    </div>
+                    <div class="col-xs-10 col-ld-10 col-md-offset-1">
+                        <form>
+                            <button type="button" class="btn btn-default" aria-label="Left Align">
+                                <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                            </button>
+                            <button type="button" class="btn btn-default" aria-label="Left Align">
+                                <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+                            </button>
+                        </form>
+                    </div>
                 </div>
                 <div id="sidebar-small" class="col-xs-10 col-ld-10">
-                    <button type="button" class="btn btn-default" aria-label="Left Align">
+                    <button id="close" type="button" class="btn btn-default" aria-label="Left Align">
                         <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                     </button>
                 </div>
