@@ -34,7 +34,7 @@ class UserModel extends Model
         $query = "INSERT INTO $this->tableName (username, name, surname, email, password, profilbild) VALUES (?, ?, ?, ?, ?, ?)";
 
         $statement = ConnectionHandler::getConnection()->prepare($query);
-        $statement->bind_param($username, $name, $surname, $email, $password, $profilbild);
+        $statement->bind_param('ssssss', $username, $name, $surname, $email, $password, $profilbild);
 
         if (!$statement->execute()) {
             throw new Exception($statement->error);

@@ -7,8 +7,20 @@
                     <div class="entries">
                         <div class="entries-header">
                             <form>
-                                <strong><p>Name der person</p></strong>
-                                <a href="#" style="float: right"><span class="glyphicon glyphicon-heart"></span></a>
+                                <div class="float-left">
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <img class="media-object profile-picture" src="view/css/img/Picture.png" alt="Pic">
+                                        </div>
+                                        <div class="media-body">
+                                            <h5 class="media-heading">Name</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="float-right">
+                                    <p>0</p>
+                                    <a href="#"><p><span class="glyphicon glyphicon-heart"></span></p></a>
+                                </div>
                             </form>
                         </div>
                         <div class="entries-txt">
@@ -26,9 +38,6 @@
 
                                 Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie
                                 consequat, vel illum dolore eu f</p>
-                        </div>
-                        <div class="col-xs-12 col-ld-12">
-                           <button class="btn btn-default"><spam class="glyphicon glyphicon-menu-down"></spam></button>
                         </div>
                     </div>
                  </div>

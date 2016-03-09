@@ -55,6 +55,16 @@ h1,h2,h3,h4{
   margin: 0 auto;
 }
 
+/* Validation Styles
+******************************************/
+
+.onSuccess{
+  border: solid green;
+}
+
+.onError{
+  border: solid darkred;
+}
 
 /*Louis
 ******************************************/
@@ -78,8 +88,7 @@ h1,h2,h3,h4{
 }
 
 .entries-header {
-  padding-bottom: 40px;
-  padding-right: 5px;
+  padding: 5px;
 }
 
 .entries-header a {
@@ -124,6 +133,14 @@ h1,h2,h3,h4{
   right: 0;
 }
 
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
+}
+
 #sidebar-big{
   background-color: #222;
   height: 850px;
@@ -140,6 +157,11 @@ h1,h2,h3,h4{
   right:40px;
   width: 100px;
   padding: 10px;
+}
+
+.profile-picture {
+  height: 50px;
+  width: 50px;
 }
 
 .btn-sidebar{
