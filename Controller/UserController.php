@@ -21,25 +21,30 @@ class UserController
     public function create()
     {
         $view = new View('user_create');
-        $view->title = 'Benutzer erstellen';
-        $view->heading = 'Benutzer erstellen';
+        $view->title = 'Register';
+        $view->heading = 'Register';
         $view->display();
     }
 
     public function doCreate()
     {
         if ($_POST['send']) {
-            $firstName = $_POST['firstName'];
-            $lastName = $_POST['lastName'];
+            $username = $_POST['username'];
+            $name = $_POST['name'];
+            $surname = $_POST['surname'];
             $email = $_POST['email'];
             $password = $_POST['password'];
 
             $userModel = new UserModel();
-            $userModel->create($firstName, $lastName, $email, $password);
+            $userModel->create($username, $name, $surname, $email, $password, "-");
+            //($username, $name, $surname, $email, $password, $profilbild)
         }
 
         // Anfrage an die URI /user weiterleiten (HTTP 302)
-        header('Location: /user');
+
+        //todo success or fail message for registration
+
+        header('Location: /');
     }
 
     public function delete()
@@ -48,6 +53,6 @@ class UserController
         $userModel->deleteById($_GET['id']);
 
         // Anfrage an die URI /user weiterleiten (HTTP 302)
-        header('Location: /user');
+        header('Location: /');
     }
 }

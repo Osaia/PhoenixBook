@@ -1,37 +1,43 @@
-<form class="form-horizontal" action="/user/doCreate" method="post">
+<form id="registerform" class="form-horizontal" action="/user/doCreate" method="post">
 	<div class="component" data-html="true">
+		<div class="form-group">
+			<label class="col-md-2 control-label" for="usernameRegis">Username</label>
+			<div class="col-md-4">
+				<input id="usernameRegis" name="username" type="text" placeholder="Username" class="form-control input-md">
+			</div>
+		</div>
         <div class="form-group">
-		  <label class="col-md-2 control-label" for="firstName">First name</label>
+		  <label class="col-md-2 control-label" for="firstNameRegis">First name</label>
 		  <div class="col-md-4">
-		  	<input id="firstNameRegis" name="firstName" type="text" placeholder="First name" class="form-control input-md">
+		  	<input id="firstNameRegis" name="surname" type="text" placeholder="First name" class="form-control input-md">
 		  </div>
 		</div>
 		<div class="form-group">
-		  <label class="col-md-2 control-label" for="lastName">Last name</label>
+		  <label class="col-md-2 control-label" for="lastNameRegis">Last name</label>
 		  <div class="col-md-4">
-		  	<input id="lastNameRegis" name="lastName" type="text" placeholder="Last name" class="form-control input-md">
+		  	<input id="lastNameRegis" name="name" type="text" placeholder="Last name" class="form-control input-md">
 		  </div>
 		</div>
 		<div class="form-group">
-		  <label class="col-md-2 control-label" for="email">Mail</label>
+		  <label class="col-md-2 control-label" for="emailRegis">Mail</label>
 		  <div class="col-md-4">
 		  	<input id="emailRegis" name="email" type="text" placeholder="Email" class="form-control input-md">
 		  </div>
 		</div>
 		<div class="form-group">
-		  <label class="col-md-2 control-label" for="password">Password</label>
+		  <label class="col-md-2 control-label" for="passwordRegis">Password</label>
 		  <div class="col-md-4">
 		  	<input id="passwordRegis" name="password" type="password" placeholder="Password" class="form-control input-md">
 		  </div>
 		</div>
 		<div class="form-group">
-			<label class="col-md-2 control-label" for="password2">Repeat Password</label>
+			<label class="col-md-2 control-label" for="password2Regis">Repeat Password</label>
 			<div class="col-md-4">
 				<input id="password2Regis" name="password2" type="password" placeholder="Repeat Password" class="form-control input-md">
 			</div>
 		</div>
         <div class="form-group">
-            <label class="col-md-2 control-label" for="firstName">Select image to upload:</label>
+            <label class="col-md-2 control-label" for="fileToUploadRegis">Select image to upload:</label>
             <div class="picture-preview">
                 <!-- Picture preview -->
             </div>
