@@ -4,17 +4,33 @@
         <div id="entries-background" class="col-xs-12 col-ld-12">
             <div class="col-xs-9 col-ld-9">
                  <div class="col-xs-9 col-ld-9 col-md-offset-1" id="entries-container">
-                    <a href="#">
-                        <div class="entries">
-                            <p>name der person</p>
-                            <div class="entries-txt">
-                                <p></p>
-                            </div>
-                            <div class="entries-footer">
-
-                            </div>
+                    <div class="entries">
+                        <div class="entries-header">
+                            <form>
+                                <strong><p>Name der person</p></strong>
+                                <a href="#" style="float: right"><span class="glyphicon glyphicon-heart"></span></a>
+                            </form>
                         </div>
-                    </a>
+                        <div class="entries-txt">
+                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+                                tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+                                vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+                                no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+                                consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+                                dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo
+                                duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
+                                Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+                                sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                                sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+                                Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+                                Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie
+                                consequat, vel illum dolore eu f</p>
+                        </div>
+                        <div class="col-xs-12 col-ld-12">
+                           <button class="btn btn-default"><spam class="glyphicon glyphicon-menu-down"></spam></button>
+                        </div>
+                    </div>
                  </div>
              </div>
             <div class="col-xs-3 col-ld-3 sidebar-top">

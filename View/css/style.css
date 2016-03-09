@@ -65,7 +65,7 @@ h1,h2,h3,h4{
   border-width: 2px;
 }
 
-/* Janik Indermühle
+/* Janik
 ******************************************/
 
 #entries-container {
@@ -75,6 +75,19 @@ h1,h2,h3,h4{
   padding-top: 30px;
   padding-left: 50px;
   padding-right: 50px;
+}
+
+.entries-header {
+  padding-bottom: 40px;
+  padding-right: 5px;
+}
+
+.entries-header a {
+  float: right;
+}
+
+.entries-header p {
+  float: left;
 }
 
 #entries-background {
@@ -92,12 +105,12 @@ h1,h2,h3,h4{
   background-color: lightgrey;
   padding-left: 5px;
   margin-top: 30px;
-  height: 120px;
+  min-height: 120px;
   border: 1px solid goldenrod;
 }
 
-.entries:hover {
-  border: solid gold 2px;
+.entries a {
+  color: red;
 }
 
 .entries p {
@@ -136,8 +149,4 @@ h1,h2,h3,h4{
 .txtarea{
   width: 100%;
   height: 300px;
-}
-
-.entries-footer {
-
 }
