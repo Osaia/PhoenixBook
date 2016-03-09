@@ -39,7 +39,6 @@
           <ul class="nav navbar-nav">
             <li><a href="/">Home</a></li>
             <li><a href="/user">Benutzer</a></li>
-            <li><a href="/user/create">Register</a></li>
             <li><a href="/entries">Entries</a></li>
           </ul>
         </div><!--/.nav-collapse -->

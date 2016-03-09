@@ -27,7 +27,7 @@
         <div id="loginWrapper">
 
             <div id="login">
-                <form class="form" method="post" action="">
+                <form class="form" method="post" action="/profile/login" enctype="multipart/form-data">
                     <div class="form-group">
                         <div class="col-md-12">
                             <input id="usernameLogin" type="text" class="form-control" placeholder="Username" name="username"/>
