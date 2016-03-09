@@ -32,7 +32,7 @@ var loginForm = {
 
 var RegisForm = {
     //Properties
-    patEmail: '/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;',
+    patEmail: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
 
     init: function(){
         $('#submitRegis').click(function(){
@@ -51,16 +51,22 @@ var RegisForm = {
             alert('out');
         });
 
-        $('#usernameLogin').focus(function(){
-            alert('in');
-        }).blur(function(){
-            alert('out');
-        });
+        //$('#user').focus(function(){
+        //    alert('in');
+        //}).blur(function(){
+        //    alert('out');
+        //});
 
         $('#emailRegis').focus(function () {
             alert('in');
         }).blur(function(){
-            alert('out');
+            if(RegisForm.patEmail.test(this.value) == true){
+                this.className = 'form-control input-md';
+                $(this).addClass('onSuccess');
+            }else{
+                this.className = 'form-control input-md';
+                $(this).addClass('onError');
+            }
         });
 
         $('#passwordRegis').focus(function(){
