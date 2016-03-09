@@ -6,22 +6,16 @@
                  <div class="col-xs-9 col-ld-9 col-md-offset-1" id="entries-container">
                     <div class="entries">
                         <div class="entries-header">
-                            <form>
-                                <div class="float-left">
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <img class="media-object profile-picture" src="view/css/img/Picture.png" alt="Pic">
-                                        </div>
-                                        <div class="media-body">
-                                            <h5 class="media-heading">Name</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="float-right">
-                                    <p>0</p>
-                                    <a href="#"><p><span class="glyphicon glyphicon-heart"></span></p></a>
-                                </div>
-                            </form>
+                            <div class="col-xs-1 col-ld-1">
+                                <img class="media-object profile-picture" src="view/css/img/Picture.png" alt="Pic">
+                            </div>
+                            <div class="col-xs-2 col-ld-2">
+                                <h5 class="media-heading">Name</h5>
+                            </div>
+                            <div class="col-xs-2 col-ld-2 col-md-offset-7">
+                                <p>0</p>
+                                <a href="#"><p><span class="glyphicon glyphicon-heart"></span></p></a>
+                            </div>
                         </div>
                         <div class="entries-txt">
                             <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod

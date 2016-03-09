@@ -88,11 +88,12 @@ h1,h2,h3,h4{
 }
 
 .entries-header {
-  padding: 5px;
+  padding-bottom: 60px;
+  padding-top: 5px;
 }
 
 .entries-header a {
-  float: right;
+  float: left;
 }
 
 .entries-header p {
