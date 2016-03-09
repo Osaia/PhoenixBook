@@ -48,6 +48,7 @@ Temporary Items
 
 
 .idea/*
+.uploads/*
 
 
 .idea/workspace.xml
