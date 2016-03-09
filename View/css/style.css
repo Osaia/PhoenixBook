@@ -51,6 +51,15 @@ h1,h2,h3,h4{
   margin-bottom: 10px;
 }
 
+footer{
+  position: absolute;
+  bottom: 0;
+  width:100%;
+  background-color: #404040;
+  height: 40px;
+  color: lightgrey;
+}
+
 #credits{
   width: 100%;
   margin: 0 auto;
