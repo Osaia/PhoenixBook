@@ -84,7 +84,7 @@ h1,h2,h3,h4{
 ******************************************/
 
 #entries-container {
-  background-color: rgba(40,40,40,0.6);
+  background-color: rgba(255,255,255,0.6);
   min-height: 1200px;
   border-radius: 5px;
   padding-top: 30px;
@@ -117,7 +117,6 @@ h1,h2,h3,h4{
 }
 
 .entries {
-  background-color: lightgrey;
   padding-left: 5px;
   margin-top: 30px;
   min-height: 120px;
@@ -145,6 +144,12 @@ h1,h2,h3,h4{
 
 .float-left {
   float: left;
+}
+
+.entries {
+  background-color: rgba(40,40,40,0.7);
+  border-radius: 0 0 20px 0;
+  color: goldenrod;
 }
 
 #sidebar-big{
