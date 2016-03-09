@@ -41,9 +41,23 @@ class UserModel extends Model
         }
     }
 
+    public function update($username, $name, $surname, $password, $profilbild)
+    {
+        $password = sha1($password);
+
+        $query = "UPDATE $this->tableName SET name = ?, surname = ?, password = ?, profilbild = ? WHERE username = ?";
+
+        $statement = ConnectionHandler::getConnection()->prepare($query);
+        $statement->bind_param('sssss', $name, $surname, $password, $profilbild, $username);
+
+        if (!$statement->execute()) {
+            throw new Exception($statement->error);
+        }
+    }
+
     public function getProfilpicture($username)
     {
-        $query = "Select profilbild from user where username = ?";
+        $query = "Select profilbild from $this->tableName where username = ?";
 
         $statement = ConnectionHandler::getConnection()->prepare($query);
         $statement->bind_param('s', $username);

@@ -56,6 +56,39 @@ class UserController
         header('Location: /');
     }
 
+    public function doUpdate()
+    {
+        if ($_POST['send']) {
+            $userModel = new UserModel();
+
+            $id = $_SESSION['userid'];
+            $user = $userModel->readbyId($id);
+            $username = $user->username;
+
+            $name = (!isset($_POST['name'])) ? $user->name : $_POST['name'];
+            $surname = (!isset($_POST['surname'])) ? $user->surname : $_POST['surname'];
+            $password = (!isset($_POST['password'])) ? $user->password : sha1($_POST['password']);
+            $profilbild = "uploads/$username.jpg";
+
+
+
+            if(isset($_FILES['fileToUpload']))
+            {
+                move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $profilbild);
+            }
+
+
+            $userModel->update($name, $surname, $password, $profilbild);
+            //($username, $name, $surname, $email, $password, $profilbild)
+        }
+
+        // Anfrage an die URI /user weiterleiten (HTTP 302)
+
+        //todo success or fail message for registration
+
+        //header('Location: /');
+    }
+
     public function delete()
     {
         $userModel = new UserModel();
