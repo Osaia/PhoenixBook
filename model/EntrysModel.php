@@ -28,7 +28,7 @@ class EntrysModel extends Model
         $query = "INSERT INTO $this->tableName (user_id, text, date, bild, likes) VALUES (?, ?, ?, ?, ?)";
 
         $statement = ConnectionHandler::getConnection()->prepare($query);
-        $statement->bind_param($userid, $text, $date, $bild, $likes);
+        $statement->bind_param('ssssi',$userid, $text, $date, $bild, $likes);
 
         if (!$statement->execute()) {
             throw new Exception($statement->error);

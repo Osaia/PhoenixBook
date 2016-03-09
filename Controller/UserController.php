@@ -35,8 +35,17 @@ class UserController
             $email = $_POST['email'];
             $password = $_POST['password'];
 
+            $profilbild = "-";
+
+            var_dump($_FILES);
+            if(isset($_FILES['fileToUpload']))
+            {
+                $profilbild = "uploads/$username.jpg";
+                move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $profilbild);
+            }
+
             $userModel = new UserModel();
-            $userModel->create($username, $name, $surname, $email, $password, "-");
+            $userModel->create($username, $name, $surname, $email, $password, $profilbild);
             //($username, $name, $surname, $email, $password, $profilbild)
         }
 
@@ -44,7 +53,7 @@ class UserController
 
         //todo success or fail message for registration
 
-        header('Location: /');
+        //header('Location: /');
     }
 
     public function delete()

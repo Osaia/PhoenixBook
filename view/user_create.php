@@ -1,4 +1,4 @@
-<form id="registerform" class="form-horizontal" action="/user/doCreate" method="post">
+<form id="registerform" class="form-horizontal" action="/user/doCreate" method="post" enctype="multipart/form-data">
 	<div class="component" data-html="true">
 		<div class="form-group">
 			<label class="col-md-2 control-label" for="usernameRegis">Username</label>

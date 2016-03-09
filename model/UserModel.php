@@ -40,4 +40,21 @@ class UserModel extends Model
             throw new Exception($statement->error);
         }
     }
+
+    public function getProfilpicture($username)
+    {
+        $query = "Select profilbild from user where username = ?";
+
+        $statement = ConnectionHandler::getConnection()->prepare($query);
+        $statement->bind_param('s', $username);
+
+        $result = $statement->execute();
+
+        if(!$result)
+        {
+            throw new Exception($statement->error);
+        }
+
+        return $result;
+    }
 }

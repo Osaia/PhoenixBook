@@ -27,7 +27,7 @@ class CommentsModel extends Model
         $query = "INSERT INTO $this->tableName (user_id, entry_id, text, date) VALUES (?, ?, ?, ?)";
 
         $statement = ConnectionHandler::getConnection()->prepare($query);
-        $statement->bind_param($user_id, $entry_id, $text, $date);
+        $statement->bind_param('iiss', $user_id, $entry_id, $text, $date);
 
         if (!$statement->execute()) {
             throw new Exception($statement->error);
