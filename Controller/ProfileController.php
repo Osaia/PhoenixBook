@@ -12,4 +12,8 @@ class ProfileController{
         $view->display();
     }
 
+    public function login(){
+
+    }
+
 }
