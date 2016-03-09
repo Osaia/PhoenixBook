@@ -167,18 +167,6 @@ var RegisForm = {
 
 
 
-$(function (){
-    if($('#submitLogin').length != 0) {
-        loginForm.init();
-    }
-
-    if($('#submitRegis').length != 0){
-        RegisForm.init()
-    }
-
-
-});
-
 
 /* Entries: Sidebar
  ****************************************/
@@ -229,6 +217,18 @@ $(document).ready(function(){
 
 
 
+// Initiating the Script...
+$(function (){
+    if($('#submitLogin').length != 0) {
+        loginForm.init();
+    }
+
+    if($('#submitRegis').length != 0){
+        RegisForm.init()
+    }
+
+
+});
 
 
 
