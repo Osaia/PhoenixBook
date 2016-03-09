@@ -43,17 +43,53 @@ class UserController
                 $profilbild = "uploads/$username.jpg";
                 move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $profilbild);
             }
+            if($this->validate($username, $name, $surname, $email,$password)){
 
-            $userModel = new UserModel();
-            $userModel->create($username, $name, $surname, $email, $password, $profilbild);
-            //($username, $name, $surname, $email, $password, $profilbild)
+                $userModel = new UserModel();
+                $userModel->create($username, $name, $surname, $email, $password, $profilbild);
+                //($username, $name, $surname, $email, $password, $profilbild)
+            }
         }
 
         // Anfrage an die URI /user weiterleiten (HTTP 302)
 
         //todo success or fail message for registration
 
-        header('Location: /');
+        //header('Location: /');
+    }
+
+    public function validate($un, $n, $sn, $em, $pwd){
+        $emailPat = '/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/';
+        $usernamePat = '/^[a-zA-Z0-9][a-zA-Z0-9_]{4,29}$/';
+        $namePat = '/^[a-zA-Z0-9]{3,20}$/';
+        $pwdPat = '/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{4,8}$/';
+
+        if(preg_match($usernamePat, $un)){
+            if(preg_match($emailPat, $em)){
+                if(preg_match($pwdPat, $pwd)){
+                    if(preg_match($namePat, $n) || empty($n)){
+                        if(preg_match($namePat, $sn) || empty($sn)){
+                            return true;
+                        }else{
+                            echo 'surname';
+                            return false;
+                        }
+                    }else{
+                        echo 'name';
+                        return false;
+                    }
+                }else{
+                    echo 'pwd';
+                    return false;
+                }
+            }else{
+                echo 'email';
+                return false;
+            }
+        }else{
+            echo 'username';
+            return false;
+        }
     }
 
     public function doUpdate()
