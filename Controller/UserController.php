@@ -53,7 +53,7 @@ class UserController
 
         //todo success or fail message for registration
 
-        //header('Location: /');
+        header('Location: /');
     }
 
     public function delete()
