@@ -6,7 +6,7 @@ return array(
         'host' => 'localhost',
         'username' => 'root',
         'password' => '',
-        'database' => 'mvc',
+        'database' => 'phoenixbook',
     ),
 
 );

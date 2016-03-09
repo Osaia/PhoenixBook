@@ -10,18 +10,6 @@ CREATE TABLE User
   ,PRIMARY KEY (id)
 );
 
-CREATE TABLE Comments
-(
-  id INTEGER NOT NULL AUTO_INCREMENT
-  ,text VARCHAR(500) NOT NULL
-  ,date VARCHAR(45)
-  ,user_id INTEGER NOT NULL
-  ,entry_id INTEGER NOT NULL
-  ,PRIMARY KEY (id)
-  ,FOREIGN KEY (user_id) REFERENCES User(id)
-  ,FOREIGN KEY (entry_id) REFERENCES Entrys(id)
-);
-
 CREATE TABLE Entrys
 (
   id INTEGER NOT NULL AUTO_INCREMENT
@@ -32,4 +20,16 @@ CREATE TABLE Entrys
   ,user_id INTEGER NOT NULL
   ,PRIMARY KEY (id)
   ,FOREIGN KEY (user_id) REFERENCES User(id)
+);
+
+CREATE TABLE Comments
+(
+  id INTEGER NOT NULL AUTO_INCREMENT
+  ,text VARCHAR(500) NOT NULL
+  ,date VARCHAR(45)
+  ,user_id INTEGER NOT NULL
+  ,entry_id INTEGER NOT NULL
+  ,PRIMARY KEY (id)
+  ,FOREIGN KEY (user_id) REFERENCES User(id)
+  ,FOREIGN KEY (entry_id) REFERENCES Entrys(id)
 );
