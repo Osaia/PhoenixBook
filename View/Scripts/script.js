@@ -12,9 +12,9 @@ var loginForm = {
         });
 
         $("#passwordLogin").focus(function() {
-            alert('in');
+            console.log('in');
         }).blur(function() {
-            alert('out');
+            console.log('out');
         });
         $("#usernameLogin").focus(function() {
             alert('in');
@@ -32,12 +32,13 @@ var loginForm = {
 
 var RegisForm = {
     //Properties
-    pattern: "hi",
+    patEmail: '/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;',
 
     init: function(){
         $('#submitRegis').click(function(){
             alert('Regis Submit');
         });
+
         $('#firstNameRegis').focus(function(){
             alert('in');
         }).blur(function(){
@@ -56,11 +57,25 @@ var RegisForm = {
             alert('out');
         });
 
-        $('#').focus(function(){
-
+        $('#emailRegis').focus(function () {
+            alert('in');
         }).blur(function(){
-
+            alert('out');
         });
+
+        $('#passwordRegis').focus(function(){
+            alert('in');
+        }).blur(function(){
+            alert('out');
+        });
+
+        $('#password2Regis').focus(function () {
+            alert('in');
+        }).blur(function(){
+            alert('out');
+        });
+
+        //FILE UPLOAD ??
     }
 }
 
