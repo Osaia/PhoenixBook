@@ -18,11 +18,12 @@
                             </div>
                             <div class="col-xs-2 col-ld-2">
                                 <h5 class="media-heading">'.$entry["user_id"].'</h5>
-                            </div>
-                            <div class="col-xs-2 col-ld-2 col-md-offset-7">
-                                <p>'.$entry["likes"].'</p>
-                                <a href="/user/like?id=';?><?= $user->id ?><?php echo '"><p><span class="glyphicon glyphicon-heart"></span></p></a>
-                            </div>
+                            </div>';
+//                            <div class="col-xs-2 col-ld-2 col-md-offset-7">
+//                                <p>'.$entry["likes"].'</p>
+//                                <a href=""><p><span class="glyphicon glyphicon-heart"></span></p></a>
+//                            </div>
+    echo'
                         </div>
                         <div class="entries-txt">
                             <p class="txt-hidden">
@@ -51,7 +52,7 @@
                         </form>
                     </div>
                     <div class="col-xs-10 col-ld-10 col-md-offset-1">
-                        <form>
+                        <form method="post">
                             <button type="button" class="btn btn-default" aria-label="Left Align">
                                 <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
                             </button>

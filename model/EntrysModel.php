@@ -23,25 +23,17 @@ class EntrysModel extends Model
      * @param $likes
      * @throws Exception
      */
-    public function create($userid, $text, $date, $bild, $likes)
+    public function create($userid, $text, $date, $bild)
     {
-        $query = "INSERT INTO $this->tableName (user_id, text, date, bild, likes) VALUES (?, ?, ?, ?, ?)";
+        $query = "INSERT INTO $this->tableName (user_id, text, date, bild) VALUES (?, ?, ?, ?, ?)";
 
         $statement = ConnectionHandler::getConnection()->prepare($query);
-        $statement->bind_param('ssssi',$userid, $text, $date, $bild, $likes);
+        $statement->bind_param('ssssi',$userid, $text, $date, $bild);
 
         if (!$statement->execute()) {
             throw new Exception($statement->error);
         }
     }
-
-    public function like($id) {
-        $query = "UPDATE $this->tableName SET likes += 1 WHERE id = '$id'";
-        $statement = ConnectionHandler::getConnection()->prepare($query);
-        $statement->bind_param($id);
-    }
-
-
 
     public function show($max){
         //$uQuery = "SELECT username FROM user WHERE username='".$username."'";
