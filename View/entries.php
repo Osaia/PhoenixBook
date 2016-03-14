@@ -6,25 +6,22 @@
                  <div class="col-xs-9 col-ld-9 col-md-offset-1" id="entries-container">
                     <?php
 
-                    $model = new Model();
-                    $model->tablename = "entrys";
-                    $entries = $model->readAll(100);
+                    $model = new EntrysModel();
+                    $entries = $model->show(100);
 
                     foreach($entries as $entry) {
-                        $model->tablename = "user";
-                        $user = $model->readById($entry["user_id"]);
                         echo '
                      <div class="entries">
                         <div class="entries-header">
                             <div class="col-xs-1 col-ld-1">
-                                <img class="media-object profile-picture" src="'.$user["profilbild"].'" alt="Pic">
+                                <img class="media-object profile-picture" src="'.$entry["user_id"].'" alt="Pic">
                             </div>
                             <div class="col-xs-2 col-ld-2">
-                                <h5 class="media-heading">'.$user["username"].'</h5>
+                                <h5 class="media-heading">'.$entry["user_id"].'</h5>
                             </div>
                             <div class="col-xs-2 col-ld-2 col-md-offset-7">
                                 <p>'.$entry["likes"].'</p>
-                                <a href="#"><p><span class="glyphicon glyphicon-heart"></span></p></a>
+                                <a href="/user/like?id=';?><?= $user->id ?><?php echo '"><p><span class="glyphicon glyphicon-heart"></span></p></a>
                             </div>
                         </div>
                         <div class="entries-txt">
@@ -34,13 +31,13 @@
                             ';
                             if (isset($profilbild)) {
                                 echo '<div><img src="'.$entry["bild"].'"></div>';
-                            };'
+                            };
+                        echo '
                             </div>
-                        </div>
-                    </div>';
-                    }
+                        </div>';
+                    };
                     ?>
-                 </div>
+             </div>
             <div class="col-xs-3 col-ld-3 sidebar-top">
                 <div id="sidebar-big" class="col-xs-10 col-ld-10">
                     <div class="btn-open-sidebar">

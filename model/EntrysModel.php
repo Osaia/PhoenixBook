@@ -35,11 +35,59 @@ class EntrysModel extends Model
         }
     }
 
-    public function like($userid) {
-        $query = "UPDATE $this->tableName SET likes += 1";
+    public function like($id) {
+        $query = "UPDATE $this->tableName SET likes += 1 WHERE id = '$id'";
         $statement = ConnectionHandler::getConnection()->prepare($query);
-        $statement->bind_param($userid);
+        $statement->bind_param($id);
+    }
+
+
+
+    public function show($max){
+        //$uQuery = "SELECT username FROM user WHERE username='".$username."'";
+        $query = "SELECT * FROM entrys LIMIT 0, $max";
+
+        $statement = ConnectionHandler::getConnection()->prepare($query);
+
+        $statement->execute();
+        $result = $statement->get_result();
+        if (!$result) {
+            throw new Exception($statement->error);
+        }
+
+        // Datensätze aus dem Resultat holen und in das Array $rows speichern
+        $rows = array();
+        while ($row = $result->fetch_array()) {
+            $rows[] = $row;
+        }
+
+        return $rows;
+    }
+
+    public function readEntryByID($id){
+        $query = "SELECT * FROM entrys WHERE user_id=?";
+
+        $statement = ConnectionHandler::getConnection()->prepare($query);
+
+        $statement->bind_param('i', $id);
+        $result = $statement->execute();
     }
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

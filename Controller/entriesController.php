@@ -17,7 +17,7 @@ class entriesController
     public function create() {
         $userid = $_GET['id'];
         $txt = $_GET['txtfeld'];
-        $date = date('Y-m-d H:i:s');
+        $date = date();
         $bild = "";
         $likes = 0;
 
