@@ -35,4 +35,11 @@ class EntrysModel extends Model
         }
     }
 
+    public function like($userid) {
+        $query = "UPDATE $this->tableName SET likes += 1";
+        $statement = ConnectionHandler::getConnection()->prepare($query);
+        $statement->bind_param($userid);
+    }
+
+
 }
