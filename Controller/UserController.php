@@ -135,17 +135,15 @@ class UserController
     }
 
 
-    public function verify($json){
+    public function verifyusername(){
         $userModel = new UserModel();
-        $entry = json_decode($json);
 
-        $username = $entry['username'];
-        //$email = $entry['email'];
+        $username = $_POST['username'];
 
         if($userModel->ajaxUserandEmail($username)){
-            return true;
+            echo "exists";
         }else{
-            return false;
+            echo "notexists";
         }
 
     }

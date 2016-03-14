@@ -115,9 +115,12 @@ class UserModel extends Model
         $statement = ConnectionHandler::getConnection()->prepare($query);
         $statement->bind_param('s', $un);
 
-        $result = $statement->execute();
+        $ok = $statement->execute();
+        $result = $statement->get_result();
 
-        if($result){
+        $user = $result->fetch_object();
+
+        if($user != false){
             return true;
         }
         else{

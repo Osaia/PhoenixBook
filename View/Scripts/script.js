@@ -49,21 +49,9 @@ var RegisForm = {
             var form = $(this);
             if(RegisForm.finalValidation()){
                 event.preventDefault();
-                $.ajax({
-                    method: 'POST',
-                    data: {username: '' + $('#usernameRegis').val(), email: $('#emailRegis').val()},
-                    url: 'user/verify'
-                })
-                .done(function(worked){
-                    if(!worked){
-                        alert('Ok');
-                        form.submit();
-                    }else{
-                        alert('Username already exists!');
-                    }
-                });
+
             }else{
-                //event.preventDefault();
+                event.preventDefault();
             }
         });
 
@@ -91,16 +79,36 @@ var RegisForm = {
             }
         });
 
+
+
         $('#usernameRegis').focus(function(){
             //alert('in');
         }).blur(function(){
-            if(RegisForm.patUsername.test(this.value) == true){
-                this.className = 'form-control input-md';
-                $(this).addClass('onSuccess');
-            }else{
-                this.className = 'form-control input-md';
-                $(this).addClass('onError');
-            }
+            $.ajax({
+                    method: 'POST',
+                    data: {username: $('#usernameRegis').val()},
+                    url: '/user/verifyusername'
+                })
+                .done(function(worked){
+                    console.log(worked);
+                    if(RegisForm.patUsername.test(this.value) == true && worked == "notexists"){
+                        //exist = false;
+                        $('#usernameRegis')[0].className = 'form-control input-md';
+                        $('#usernameRegis').addClass('onSuccess');
+                    }else{
+                        //exist = true;
+                        $('#usernameRegis')[0].className = 'form-control input-md';
+                        $('#usernameRegis').addClass('onError');
+                    }
+                });
+            //console.log(exist);
+            //if(RegisForm.patUsername.test(this.value) == true && !exist){
+            //    this.className = 'form-control input-md';
+            //    $(this).addClass('onSuccess');
+            //}else{
+            //    this.className = 'form-control input-md';
+            //    $(this).addClass('onError');
+            //}
         });
 
         $('#emailRegis').focus(function () {
