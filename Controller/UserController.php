@@ -28,7 +28,7 @@ class UserController
 
     public function doCreate()
     {
-        $success = false;
+        $result = "";
         if ($_POST['send']) {
             $username = $_POST['username'];
             $name = $_POST['name'];
@@ -47,19 +47,22 @@ class UserController
 
                 $userModel = new UserModel();
 
-                $success = $userModel->create($username, $name, $surname, $email, $password, $profilbild);
+                $result = $userModel->create($username, $name, $surname, $email, $password, $profilbild);
             }
         }
 
         // Anfrage an die URI /user weiterleiten (HTTP 302)
 
-        //todo success or fail message for registration
-        if($success){
-            echo "<script type='text/javascript'>alert('Register successful!')</script>";
-            header('Location: /');
-        }else {
-            echo "<script type='text/javascript'>alert('Register failed!')</script>";
-        }
+        //todo success or fail message
+
+        //fail messages
+//        if(strpos($result, "username") !== false){
+//            echo "<script type='text/javascript'>alert('This username already exists!')</script>";
+//        }elseif(strpos($result, "email") !== false) {
+//            echo "<script type='text/javascript'>alert('This email is already registered!')</script>";
+//        }else{
+//            echo "<script type='text/javascript'>alert('Registration failed!')</script>";
+//        }
 
     }
 
@@ -126,9 +129,25 @@ class UserController
 
         // Anfrage an die URI /user weiterleiten (HTTP 302)
 
-        //todo success or fail message for registration
+        //todo success or fail message
 
         header('Location: /');
+    }
+
+
+    public function verify($json){
+        $userModel = new UserModel();
+        $entry = json_decode($json);
+
+        $username = $entry['username'];
+        //$email = $entry['email'];
+
+        if($userModel->ajaxUserandEmail($username)){
+            return true;
+        }else{
+            return false;
+        }
+
     }
 
     public function delete()

@@ -28,7 +28,7 @@ class UserModel extends Model
     public function create($username, $name, $surname, $email, $password, $profilbild)
     {
         $password = sha1($password);
-        //$success = true;
+        $result = "";
 
         $query = "INSERT INTO $this->tableName (username, name, surname, email, password, profilbild) VALUES (?, ?, ?, ?, ?, ?)";
 
@@ -36,11 +36,11 @@ class UserModel extends Model
         $statement->bind_param('ssssss', $username, $name, $surname, $email, $password, $profilbild);
 
         if (!$statement->execute()) {
-            //$success = false;
-            throw new Exception($statement->error);
+            $result = $statement->error;
+            //throw new Exception($statement->error);
         }
 
-        //return $success;
+        return $result;
     }
 
     public function update($username, $name, $surname, $password, $profilbild)
@@ -106,5 +106,22 @@ class UserModel extends Model
             return false;
         }
 
+    }
+
+    public function ajaxUserandEmail($un){
+
+        $query = "Select * from $this->tableName where username = ?";
+
+        $statement = ConnectionHandler::getConnection()->prepare($query);
+        $statement->bind_param('s', $un);
+
+        $result = $statement->execute();
+
+        if($result){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 }

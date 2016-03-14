@@ -46,11 +46,24 @@ var RegisForm = {
 
     init: function(){
         $('#registerform').submit(function(event){
+            var form = $(this);
             if(RegisForm.finalValidation()){
-
-                //event.preventDefault();
-            }else{
                 event.preventDefault();
+                $.ajax({
+                    method: 'POST',
+                    data: {username: '' + $('#usernameRegis').val(), email: $('#emailRegis').val()},
+                    url: 'user/verify'
+                })
+                .done(function(worked){
+                    if(!worked){
+                        alert('Ok');
+                        form.submit();
+                    }else{
+                        alert('Username already exists!');
+                    }
+                });
+            }else{
+                //event.preventDefault();
             }
         });
 
