@@ -100,14 +100,6 @@ var RegisForm = {
                         $('#usernameRegis').addClass('onError');
                     }
                 });
-            //console.log(exist);
-            //if(RegisForm.patUsername.test(this.value) == true && !exist){
-            //    this.className = 'form-control input-md';
-            //    $(this).addClass('onSuccess');
-            //}else{
-            //    this.className = 'form-control input-md';
-            //    $(this).addClass('onError');
-            //}
         });
 
         $('#emailRegis').focus(function () {
