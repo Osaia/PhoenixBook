@@ -28,6 +28,8 @@ var loginForm = {
 
 /**
  * Klasse: Registrierung
+ * Besteht aus eventListener für die verschiedenen Elemente die sich im Form befinden. Diese werden in der Funktion init des Objektes/Klasse RegisForm initialisiert.
+ * Die Funktion init() wird im document.ready aufgerufen (also nach dem die ganze Seite geladen hat)
  */
 
 var RegisForm = {
@@ -49,23 +51,7 @@ var RegisForm = {
             var form = $(this);
             if(RegisForm.finalValidation()){
                 event.preventDefault();
-<<<<<<< HEAD
 
-=======
-                $.ajax({
-                    method: 'POST',
-                    data: {username: '' + $('#usernameRegis').val(), email: $('#emailRegis').val()},
-                    url: '/controller/user/verify'
-                })
-                .done(function(worked){
-                    if(!worked){
-                        alert('Ok');
-                        form.submit();
-                    }else{
-                        alert('Username already exists!');
-                    }
-                });
->>>>>>> origin/master
             }else{
                 event.preventDefault();
             }
@@ -95,8 +81,6 @@ var RegisForm = {
             }
         });
 
-
-
         $('#usernameRegis').focus(function(){
             //alert('in');
         }).blur(function(){
@@ -117,14 +101,6 @@ var RegisForm = {
                         $('#usernameRegis').addClass('onError');
                     }
                 });
-            //console.log(exist);
-            //if(RegisForm.patUsername.test(this.value) == true && !exist){
-            //    this.className = 'form-control input-md';
-            //    $(this).addClass('onSuccess');
-            //}else{
-            //    this.className = 'form-control input-md';
-            //    $(this).addClass('onError');
-            //}
         });
 
         $('#emailRegis').focus(function () {
@@ -224,52 +200,106 @@ $(document).ready(function(){
 /* Entries: Hide Text function
 ****************************************/
 
-$(document).ready(function(){
+//$(document).ready(function(){
+//
+//    var minimized_elements = $('p.txt-hidden');
+//
+//    minimized_elements.each(function(){
+//        var t = $(this).text();
+//        if(t.length < 300) return;
+//
+//        $(this).html(
+//            t.slice(0,300)+'<span>... </span><a href="#" class="more"><span class="glyphicon glyphicon-menu-down"></span></a>'+
+//            '<span style="display:none;">'+ t.slice(300,t.length)+' <a href="#" class="less"><span class="glyphicon glyphicon-menu-up"></span></a></span>'
+//        );
+//
+//    });
+//
+//    $('a.more', minimized_elements).click(function(event){
+//        event.preventDefault();
+//        $(this).hide().prev().hide();
+//        $(this).next().show();
+//    });
+//
+//    $('a.less', minimized_elements).click(function(event){
+//        event.preventDefault();
+//        $(this).parent().hide().prev().show().prev().show();
+//    });
+//
+//});
+//
+//
+//
+//// Initiating the Script...
+//$(function (){
+//    if($('#submitLogin').length != 0) {
+//        loginForm.init();
+//    }
+//
+//    if($('#submitRegis').length != 0){
+//        RegisForm.init()
+//    }
+//
+//    if($('#sidebar-small').length != 0){
+//        Entries.init();
+//    }
+//
+//
+//
+//});
 
-    var minimized_elements = $('p.txt-hidden');
-
-    minimized_elements.each(function(){
-        var t = $(this).text();
-        if(t.length < 300) return;
-
-        $(this).html(
-            t.slice(0,300)+'<span>... </span><a href="#" class="more"><span class="glyphicon glyphicon-menu-down"></span></a>'+
-            '<span style="display:none;">'+ t.slice(300,t.length)+' <a href="#" class="less"><span class="glyphicon glyphicon-menu-up"></span></a></span>'
-        );
-
-    });
-
-    $('a.more', minimized_elements).click(function(event){
-        event.preventDefault();
-        $(this).hide().prev().hide();
-        $(this).next().show();
-    });
-
-    $('a.less', minimized_elements).click(function(event){
-        event.preventDefault();
-        $(this).parent().hide().prev().show().prev().show();
-    });
-
-});
 
 
+var Entries = {
 
-// Initiating the Script...
-$(function (){
-    if($('#submitLogin').length != 0) {
-        loginForm.init();
+    init: function () {
+        this.entries();
+        this.sidebar();
+    },
+
+    //Entries: Sidebar
+    sidebar: function(){
+        $("#sidebar-big").hide();
+        $("#sidebar-small").show();
+        $("#open").click(function(){
+            $("#sidebar-big").toggle(1000);
+            $("#sidebar-small").toggle(1000);
+        });
+        $("#close").click(function(){
+            $("#sidebar-big").toggle(1000);
+            $("#sidebar-small").toggle(1000);
+        });
+    },
+
+    // Entries: Hide Text function
+    entries: function(){
+        var minimized_elements = $('p.txt-hidden');
+
+        minimized_elements.each(function(){
+            var t = $(this).text();
+            if(t.length < 300) return;
+
+            $(this).html(
+                t.slice(0,300)+'<span>... </span><a href="#" class="more"><span class="glyphicon glyphicon-menu-down"></span></a>'+
+                '<span style="display:none;">'+ t.slice(300,t.length)+' <a href="#" class="less"><span class="glyphicon glyphicon-menu-up"></span></a></span>'
+            );
+
+        });
+
+        $('a.more', minimized_elements).click(function(event){
+            event.preventDefault();
+            $(this).hide().prev().hide();
+            $(this).next().show();
+        });
+
+        $('a.less', minimized_elements).click(function(event){
+            event.preventDefault();
+            $(this).parent().hide().prev().show().prev().show();
+        });
     }
 
-    if($('#submitRegis').length != 0){
-        RegisForm.init()
-    }
-
-
-});
-
-
-
-
+//End Emtries
+}
 
 
 
