@@ -12,8 +12,8 @@ class UserController
         $userModel = new UserModel();
 
         $view = new View('user_index');
-        $view->title = 'Benutzer';
-        $view->heading = 'Benutzer';
+        $view->title = 'User';
+        $view->heading = 'User';
         $view->users = $userModel->readAll();
         $view->display();
     }
@@ -52,17 +52,7 @@ class UserController
         }
 
         // Anfrage an die URI /user weiterleiten (HTTP 302)
-
-        //todo success or fail message
-
-        //fail messages
-//        if(strpos($result, "username") !== false){
-//            echo "<script type='text/javascript'>alert('This username already exists!')</script>";
-//        }elseif(strpos($result, "email") !== false) {
-//            echo "<script type='text/javascript'>alert('This email is already registered!')</script>";
-//        }else{
-//            echo "<script type='text/javascript'>alert('Registration failed!')</script>";
-//        }
+        header('Location: /');
 
     }
 
@@ -132,7 +122,7 @@ class UserController
 
         //todo success or fail message
 
-        header('Location: /');
+        header('Location: /editProfile');
     }
 
 

@@ -1,5 +1,6 @@
 <?php
 
+require_once 'model/UserModel.php';
 
 class EditprofileController
 {
@@ -12,13 +13,19 @@ class EditprofileController
      */
     public function index()
     {
+        $_SESSION['userid'] = 14;
         if(isset($_SESSION['userid'])) {
+            $userModel = new UserModel();
+            $names = $userModel->getNameAndSurnameByID($_SESSION['userid']);
+
             $view = new View('editProfile');
             $view->title = 'Edit Profile';
             $view->heading = 'Edit Profile';
+            $view->name = $names->name;
+            $view->surname = $names->surname;
             $view->display();
-        }else{
+       }else{
             header('Location: /');
-        }
+       }
     }
 }

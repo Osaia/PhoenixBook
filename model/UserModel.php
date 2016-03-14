@@ -107,7 +107,7 @@ class UserModel extends Model
         $result = $statement->execute();
         $statement->close();
         if($result){
-            $pQuery = "SELECT * FROM user WHERE username= ?";
+            $pQuery = "SELECT * FROM $this->tableName WHERE username= ?";
             $statement = ConnectionHandler::getConnection()->prepare($pQuery);
 
             $statement->bind_param('s', $username);
@@ -130,6 +130,24 @@ class UserModel extends Model
             return false;
         }
 
+    }
+
+    public function getNameAndSurnameByID($id){
+
+        $query = "SELECT name, surname FROM $this->tableName WHERE id= ?";
+        $statement = ConnectionHandler::getConnection()->prepare($query);
+
+        $statement->bind_param('i', $id);
+        $statement->execute();
+
+        $result = $statement->get_result();
+
+        $statement->close();
+
+        // Ersten Datensatz aus dem Reultat holen
+        $row = $result->fetch_object();
+
+        return $row;
     }
 
     public function ajaxUserandEmail($searchterm, $mailoruser){
