@@ -8,7 +8,7 @@ var loginForm = {
     init: function(){
 
         $('#submitLogin').click(function(){
-            alert('hi');
+
         });
 
         $("#passwordLogin").focus(function() {
@@ -52,7 +52,7 @@ var RegisForm = {
                 $.ajax({
                     method: 'POST',
                     data: {username: '' + $('#usernameRegis').val(), email: $('#emailRegis').val()},
-                    url: 'user/verify'
+                    url: '/controller/user/verify'
                 })
                 .done(function(worked){
                     if(!worked){
