@@ -25,7 +25,7 @@
 //                                <p>'.$entry["likes"].'</p>
 //                                <a href=""><p><span class="glyphicon glyphicon-heart"></span></p></a>
 //                            </div>
-    echo'
+                        echo'
                         </div>
                         <div class="entries-txt">
                             <p class="txt-hidden">
@@ -42,28 +42,26 @@
                     ?>
              </div>
             <div class="col-xs-3 col-ld-3 sidebar-top">
-                <div id="sidebar-big" class="col-xs-10 col-ld-10">
-                    <div class="btn-open-sidebar">
-                        <button id="open" type="button" class="btn btn-default" aria-label="Left Align">
-                            <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
-                        </button>
-                    </div>
-                    <div class="col-xs-10 col-ld-10 col-md-offset-1">
-                        <form method="get">
-                            <textarea class="txtarea" name="txtfeld" placeholder="Text..."></textarea>
-                        </form>
-                    </div>
-                    <div class="col-xs-10 col-ld-10 col-md-offset-1">
-                        <form method="post">
-                            <button type="button" class="btn btn-default" aria-label="Left Align">
+                <form method="post" action="entries/create" id="newEntryForm">
+                    <div id="sidebar-big" class="col-xs-10 col-ld-10">
+                        <div class="btn-open-sidebar">
+                            <button id="open" type="button" class="btn btn-default" aria-label="Left Align">
+                                <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+                            </button>
+                        </div>
+                        <div class="col-xs-10 col-ld-10 col-md-offset-1">
+                            <textarea class="txtarea" name="textField" placeholder="Text..."></textarea>
+                        </div>
+                        <div class="col-xs-10 col-ld-10 col-md-offset-1">
+                            <button type="submit" name="uploadText" class="btn btn-default" aria-label="Left Align">
                                 <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
                             </button>
-                            <button type="button" class="btn btn-default" aria-label="Left Align">
+                            <button type="button" name="uploadPicture" class="btn btn-default" aria-label="Left Align">
                                 <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
                             </button>
-                        </form>
+                        </div>
                     </div>
-                </div>
+                </form>
                 <div id="sidebar-small" class="col-xs-10 col-ld-10">
                     <button id="close" type="button" class="btn btn-default" aria-label="Left Align">
                         <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>

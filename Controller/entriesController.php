@@ -15,15 +15,18 @@ class entriesController
     }
 
     public function create() {
-        $userid = $_GET['id'];
-        $txt = $_GET['txtfeld'];
-        $date = date();
-        $bild = "";
+        $userid = $_SESSION['id'];
+        $txt = $_POST['textField'];
+        $date = date('Y M d');
+        $bild = $_POST['uploadPicture'];
 //        $likes = 0;
-
 
         $entriesModel = new EntrysModel();
         $entriesModel->create($userid, $txt, $date, $bild);
+    }
+
+    public function find($userid){
+
     }
 
 //    public function like() {

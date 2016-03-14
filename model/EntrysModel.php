@@ -28,9 +28,11 @@ class EntrysModel extends Model
         $query = "INSERT INTO $this->tableName (user_id, text, date, bild) VALUES (?, ?, ?, ?, ?)";
 
         $statement = ConnectionHandler::getConnection()->prepare($query);
-        $statement->bind_param('ssssi',$userid, $text, $date, $bild);
+        $statement->bind_param('isss',$userid, $text, $date, $bild);
 
-        if (!$statement->execute()) {
+        $result = $statement->execute();
+
+        if ($result) {
             throw new Exception($statement->error);
         }
     }
@@ -63,6 +65,16 @@ class EntrysModel extends Model
 
         $statement->bind_param('i', $id);
         $result = $statement->execute();
+    }
+
+    public function find($userid){
+        $uQuery = "SELECT username, profilbild FROM user WHERE id='$userid'";
+
+        $statement = ConnectionHandler::getConnection()->prepare($uQuery);
+        $statement->bind_param('s', $userid);
+
+        $result = $statement->execute();
+        $statement->close();
     }
 
 
