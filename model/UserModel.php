@@ -16,20 +16,19 @@ class UserModel extends Model
     protected $tableName = 'user';
 
     /**
-     * Creates user
-     *
      * @param $username
      * @param $name
      * @param $surname
      * @param $email
      * @param $password
      * @param $profilbild
+     * @return bool
      * @throws Exception
-     *
      */
     public function create($username, $name, $surname, $email, $password, $profilbild)
     {
         $password = sha1($password);
+        //$success = true;
 
         $query = "INSERT INTO $this->tableName (username, name, surname, email, password, profilbild) VALUES (?, ?, ?, ?, ?, ?)";
 
@@ -37,8 +36,11 @@ class UserModel extends Model
         $statement->bind_param('ssssss', $username, $name, $surname, $email, $password, $profilbild);
 
         if (!$statement->execute()) {
+            //$success = false;
             throw new Exception($statement->error);
         }
+
+        //return $success;
     }
 
     public function update($username, $name, $surname, $password, $profilbild)

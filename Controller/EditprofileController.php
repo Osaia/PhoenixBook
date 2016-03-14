@@ -12,9 +12,13 @@ class EditprofileController
      */
     public function index()
     {
-           $view = new View('editProfile');
-        $view->title = 'Edit Profile';
-        $view->heading = 'Edit Profile';
-        $view->display();
+        if(isset($_SESSION['userid'])) {
+            $view = new View('editProfile');
+            $view->title = 'Edit Profile';
+            $view->heading = 'Edit Profile';
+            $view->display();
+        }else{
+            header('Location: /');
+        }
     }
 }

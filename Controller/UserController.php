@@ -28,6 +28,7 @@ class UserController
 
     public function doCreate()
     {
+        $success = false;
         if ($_POST['send']) {
             $username = $_POST['username'];
             $name = $_POST['name'];
@@ -37,7 +38,6 @@ class UserController
 
             $profilbild = "-";
 
-            var_dump($_FILES);
             if(isset($_FILES['fileToUpload']))
             {
                 $profilbild = "uploads/$username.jpg";
@@ -47,16 +47,20 @@ class UserController
 
                 $userModel = new UserModel();
 
-                $userModel->create($username, $name, $surname, $email, $password, $profilbild);
-                //($username, $name, $surname, $email, $password, $profilbild)
+                $success = $userModel->create($username, $name, $surname, $email, $password, $profilbild);
             }
         }
 
         // Anfrage an die URI /user weiterleiten (HTTP 302)
 
         //todo success or fail message for registration
+        if($success){
+            echo "<script type='text/javascript'>alert('Register successful!')</script>";
+            header('Location: /');
+        }else {
+            echo "<script type='text/javascript'>alert('Register failed!')</script>";
+        }
 
-        //header('Location: /');
     }
 
     public function validate($un, $n, $sn, $em, $pwd){
@@ -91,6 +95,8 @@ class UserController
             echo 'username';
             return false;
         }
+
+        header('Location: /');
     }
 
     public function doUpdate()
@@ -122,7 +128,7 @@ class UserController
 
         //todo success or fail message for registration
 
-        //header('Location: /');
+        header('Location: /');
     }
 
     public function delete()
