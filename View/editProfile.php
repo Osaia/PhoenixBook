@@ -1,4 +1,4 @@
-<form id="profileform" class="form-horizontal" action="/user/doUpdate" method="post" enctype="multipart/form-data">
+<form id="registerform" class="form-horizontal" action="/user/doUpdate" method="post" enctype="multipart/form-data">
     <div class="component" data-html="true">
         <div class="form-group">
             <label class="col-md-2 control-label" for="fileToUploadRegis">Select image to upload:</label>
