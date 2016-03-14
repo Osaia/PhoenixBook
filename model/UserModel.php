@@ -84,17 +84,22 @@ class UserModel extends Model
     //            die("Connection failed: " . $conn->connect_error);
     //        }
     public function find($username, $pwd){
-        $pwd = sha1($pwd);
 
-        $uQuery = "SELECT username FROM user WHERE username='".$username."'";
+
+        $uQuery = "SELECT username FROM user WHERE username= ?";
 
         $statement = ConnectionHandler::getConnection()->prepare($uQuery);
+        $statement->bind_param('s', $username);
 
         $result = $statement->execute();
 
         if($result){
-            $pQuery = "SELECT password FROM user where password='".$pwd."'";
+            $pwd = sha1($pwd);
+            $pQuery = "SELECT password FROM user WHERE password= ?";
+
             $statement = ConnectionHandler::getConnection()->prepare($pQuery);
+            //fehleer boolean
+            $statement->bind_param('s', $pwd);
 
             $result = $statement->execute();
             if($result){
