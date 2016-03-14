@@ -13,7 +13,6 @@ class EditprofileController
      */
     public function index()
     {
-        $_SESSION['userid'] = 14;
         if(isset($_SESSION['userid'])) {
             $userModel = new UserModel();
             $names = $userModel->getNameAndSurnameByID($_SESSION['userid']);
