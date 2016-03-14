@@ -117,12 +117,17 @@ class UserModel extends Model
 
     }
 
-    public function ajaxUserandEmail($un){
+    public function ajaxUserandEmail($searchterm, $mailoruser){
 
-        $query = "Select * from $this->tableName where username = ?";
+        if($mailoruser == "user"){
+            $query = "Select * from $this->tableName where username = ?";
+        }else{
+            $query = "Select * from $this->tableName where email = ?";
+        }
+
 
         $statement = ConnectionHandler::getConnection()->prepare($query);
-        $statement->bind_param('s', $un);
+        $statement->bind_param('s', $searchterm);
 
         $ok = $statement->execute();
         $result = $statement->get_result();

@@ -46,26 +46,9 @@ var RegisForm = {
 
     init: function(){
         $('#registerform').submit(function(event){
-            var form = $(this);
+            //var form = $(this);
             if(RegisForm.finalValidation()){
-                event.preventDefault();
-<<<<<<< HEAD
-
-=======
-                $.ajax({
-                    method: 'POST',
-                    data: {username: '' + $('#usernameRegis').val(), email: $('#emailRegis').val()},
-                    url: '/controller/user/verify'
-                })
-                .done(function(worked){
-                    if(!worked){
-                        alert('Ok');
-                        form.submit();
-                    }else{
-                        alert('Username already exists!');
-                    }
-                });
->>>>>>> origin/master
+                //event.preventDefault();
             }else{
                 event.preventDefault();
             }
@@ -102,8 +85,8 @@ var RegisForm = {
         }).blur(function(){
             $.ajax({
                     method: 'POST',
-                    data: {username: $('#usernameRegis').val()},
-                    url: '/user/verifyusername'
+                    data: {username: $('#usernameRegis').val(), type: "user"},
+                    url: '/user/verify'
                 })
                 .done(function(worked){
                     console.log(worked);
@@ -130,13 +113,23 @@ var RegisForm = {
         $('#emailRegis').focus(function () {
 
         }).blur(function(){
-            if(RegisForm.patEmail.test(this.value) == true){
-                this.className = 'form-control input-md';
-                $(this).addClass('onSuccess');
-            }else{
-                this.className = 'form-control input-md';
-                $(this).addClass('onError');
-            }
+            $.ajax({
+                    method: 'POST',
+                    data: {email: $('#emailRegis').val(), type: "email"},
+                    url: '/user/verify'
+                })
+                .done(function(worked){
+                    console.log(worked);
+                    if(RegisForm.patUsername.test(this.value) == true && worked == "notexists"){
+                        //exist = false;
+                        $('#emailRegis')[0].className = 'form-control input-md';
+                        $('#emailRegis').addClass('onSuccess');
+                    }else{
+                        //exist = true;
+                        $('#emailRegis')[0].className = 'form-control input-md';
+                        $('#emailRegis').addClass('onError');
+                    }
+                });
         });
 
         $('#passwordRegis').focus(function(){
