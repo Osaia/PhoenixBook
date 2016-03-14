@@ -1,5 +1,14 @@
-<form id="profileform" class="form-horizontal" action="/user/doCreate" method="post" enctype="multipart/form-data">
+<form id="profileform" class="form-horizontal" action="/user/doUpdate" method="post" enctype="multipart/form-data">
     <div class="component" data-html="true">
+        <div class="form-group">
+            <label class="col-md-2 control-label" for="fileToUploadRegis">Select image to upload:</label>
+            <div class="picture-preview">
+                <!-- Picture preview -->
+            </div>
+            <div class="col-md-4">
+                <input type="file" name="fileToUpload" id="fileToUploadRegis" class="">
+            </div>
+        </div>
         <div class="form-group">
             <label class="col-md-2 control-label" for="firstNameRegis">First name</label>
             <div class="col-md-4">
@@ -22,15 +31,6 @@
             <label class="col-md-2 control-label" for="password2Regis">Repeat Password</label>
             <div class="col-md-4">
                 <input id="password2Regis" name="password2" type="password" placeholder="Repeat Password" class="form-control input-md">
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-md-2 control-label" for="fileToUploadRegis">Select image to upload:</label>
-            <div class="picture-preview">
-                <!-- Picture preview -->
-            </div>
-            <div class="col-md-4">
-                <input type="file" name="fileToUpload" id="fileToUploadRegis" class="">
             </div>
         </div>
         <div class="form-group">

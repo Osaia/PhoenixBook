@@ -46,6 +46,7 @@ class UserController
             if($this->validate($username, $name, $surname, $email,$password)){
 
                 $userModel = new UserModel();
+
                 $userModel->create($username, $name, $surname, $email, $password, $profilbild);
                 //($username, $name, $surname, $email, $password, $profilbild)
             }
