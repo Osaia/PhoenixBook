@@ -39,9 +39,17 @@
           <ul class="nav navbar-nav">
             <li><a href="/">Home</a></li>
             <li><a href="/editProfile">User</a></li>
-            <li><a href="/entries">Entries</a></li>
           </ul>
         </div><!--/.nav-collapse -->
+        <?php
+          if(isset($_SESSION['userid'])){
+            echo '
+            <form method="post" action="profile/logout">
+                <input id="logout" type="submit" value="Logout"/>
+            </form>
+            ';
+          }
+        ?>
       </div>
     </nav>
 

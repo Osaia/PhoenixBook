@@ -28,8 +28,6 @@ var loginForm = {
 
 /**
  * Klasse: Registrierung
- * Besteht aus eventListener für die verschiedenen Elemente die sich im Form befinden. Diese werden in der Funktion init des Objektes/Klasse RegisForm initialisiert.
- * Die Funktion init() wird im document.ready aufgerufen (also nach dem die ganze Seite geladen hat)
  */
 
 var RegisForm = {
@@ -48,10 +46,9 @@ var RegisForm = {
 
     init: function(){
         $('#registerform').submit(function(event){
-            var form = $(this);
+            //var form = $(this);
             if(RegisForm.finalValidation()){
-                event.preventDefault();
-
+                //event.preventDefault();
             }else{
                 event.preventDefault();
             }
@@ -81,13 +78,15 @@ var RegisForm = {
             }
         });
 
+
+
         $('#usernameRegis').focus(function(){
             //alert('in');
         }).blur(function(){
             $.ajax({
                     method: 'POST',
-                    data: {username: $('#usernameRegis').val()},
-                    url: '/user/verifyusername'
+                    data: {username: $('#usernameRegis').val(), type: "user"},
+                    url: '/user/verify'
                 })
                 .done(function(worked){
                     console.log(worked);
@@ -106,13 +105,23 @@ var RegisForm = {
         $('#emailRegis').focus(function () {
 
         }).blur(function(){
-            if(RegisForm.patEmail.test(this.value) == true){
-                this.className = 'form-control input-md';
-                $(this).addClass('onSuccess');
-            }else{
-                this.className = 'form-control input-md';
-                $(this).addClass('onError');
-            }
+            $.ajax({
+                    method: 'POST',
+                    data: {email: $('#emailRegis').val(), type: "email"},
+                    url: '/user/verify'
+                })
+                .done(function(worked){
+                    console.log(worked);
+                    if(RegisForm.patUsername.test(this.value) == true && worked == "notexists"){
+                        //exist = false;
+                        $('#emailRegis')[0].className = 'form-control input-md';
+                        $('#emailRegis').addClass('onSuccess');
+                    }else{
+                        //exist = true;
+                        $('#emailRegis')[0].className = 'form-control input-md';
+                        $('#emailRegis').addClass('onError');
+                    }
+                });
         });
 
         $('#passwordRegis').focus(function(){
@@ -186,21 +195,6 @@ var Entries = {
         this.sidebar();
     },
 
-    //Entries: Sidebar
-    sidebar: function(){
-        $("#sidebar-big").hide();
-        $("#sidebar-small").show();
-        $("#open").click(function(){
-            $("#sidebar-big").toggle(1000);
-            $("#sidebar-small").toggle(1000);
-        });
-        $("#close").click(function(){
-            $("#sidebar-big").toggle(1000);
-            $("#sidebar-small").toggle(1000);
-        });
-    },
-
-    // Entries: Hide Text function
     entries: function(){
         var minimized_elements = $('p.txt-hidden');
 
@@ -225,61 +219,24 @@ var Entries = {
             event.preventDefault();
             $(this).parent().hide().prev().show().prev().show();
         });
-    }
+    },
 
-//End Emtries
+
+    sidebar: function(){
+        $("#sidebar-big").hide();
+        $("#sidebar-small").show();
+        $("#open").click(function(){
+            $("#sidebar-big").toggle(1000);
+            $("#sidebar-small").toggle(1000);
+        });
+        $("#close").click(function(){
+            $("#sidebar-big").toggle(1000);
+            $("#sidebar-small").toggle(1000);
+        });
+    }
 }
 
 
-/* Entries: Sidebar
- ****************************************/
-
-//$(document).ready(function(){
-//    $("#sidebar-big").hide();
-//    $("#sidebar-small").show();
-//    $("#open").click(function(){
-//        $("#sidebar-big").toggle(1000);
-//        $("#sidebar-small").toggle(1000);
-//    });
-//    $("#close").click(function(){
-//        $("#sidebar-big").toggle(1000);
-//        $("#sidebar-small").toggle(1000);
-//    });
-//});
-
-/* Entries: Hide Text function
-****************************************/
-
-//$(document).ready(function(){
-//
-//    var minimized_elements = $('p.txt-hidden');
-//
-//    minimized_elements.each(function(){
-//        var t = $(this).text();
-//        if(t.length < 300) return;
-//
-//        $(this).html(
-//            t.slice(0,300)+'<span>... </span><a href="#" class="more"><span class="glyphicon glyphicon-menu-down"></span></a>'+
-//            '<span style="display:none;">'+ t.slice(300,t.length)+' <a href="#" class="less"><span class="glyphicon glyphicon-menu-up"></span></a></span>'
-//        );
-//
-//    });
-//
-//    $('a.more', minimized_elements).click(function(event){
-//        event.preventDefault();
-//        $(this).hide().prev().hide();
-//        $(this).next().show();
-//    });
-//
-//    $('a.less', minimized_elements).click(function(event){
-//        event.preventDefault();
-//        $(this).parent().hide().prev().show().prev().show();
-//    });
-//
-//});
-//
-//
-//
 // Initiating the Script...
 $(function (){
     if($('#submitLogin').length != 0) {

@@ -23,23 +23,63 @@ class EntrysModel extends Model
      * @param $likes
      * @throws Exception
      */
-    public function create($userid, $text, $date, $bild, $likes)
+    public function create($userid, $text, $date, $bild)
     {
-        $query = "INSERT INTO $this->tableName (user_id, text, date, bild, likes) VALUES (?, ?, ?, ?, ?)";
+        $query = "INSERT INTO $this->tableName (user_id, text, date, bild) VALUES (?, ?, ?, ?, ?)";
 
         $statement = ConnectionHandler::getConnection()->prepare($query);
-        $statement->bind_param('ssssi',$userid, $text, $date, $bild, $likes);
+        $statement->bind_param('ssssi',$userid, $text, $date, $bild);
 
         if (!$statement->execute()) {
             throw new Exception($statement->error);
         }
     }
 
-    public function like($userid) {
-        $query = "UPDATE $this->tableName SET likes += 1";
+    public function show($max){
+        //$uQuery = "SELECT username FROM user WHERE username='".$username."'";
+        $query = "SELECT * FROM entrys LIMIT 0, $max";
+
         $statement = ConnectionHandler::getConnection()->prepare($query);
-        $statement->bind_param($userid);
+
+        $statement->execute();
+        $result = $statement->get_result();
+        if (!$result) {
+            throw new Exception($statement->error);
+        }
+
+        // Datensätze aus dem Resultat holen und in das Array $rows speichern
+        $rows = array();
+        while ($row = $result->fetch_array()) {
+            $rows[] = $row;
+        }
+
+        return $rows;
+    }
+
+    public function readEntryByID($id){
+        $query = "SELECT * FROM entrys WHERE user_id=?";
+
+        $statement = ConnectionHandler::getConnection()->prepare($query);
+
+        $statement->bind_param('i', $id);
+        $result = $statement->execute();
     }
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

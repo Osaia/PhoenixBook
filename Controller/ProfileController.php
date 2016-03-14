@@ -24,12 +24,20 @@ class ProfileController{
 
         if ($userModel->find($uName, $password))
         {
+            $_SESSION['userid'] = $userModel->getUserIDbyName($uName);
             header('Location: /entries');
         }else{
-            echo "Wrong username";
+            echo "Wrong username or Password";
         }
 
 
+    }
+
+    public function logout(){
+        session_unset();
+        session_destroy();
+
+        header('Location: /');
     }
 
 }

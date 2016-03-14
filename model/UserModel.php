@@ -74,15 +74,30 @@ class UserModel extends Model
         return $result;
     }
 
+    public function getUserIDbyName($un){
+        $query = "Select id from $this->tableName where username = ?";
+
+        $statement = ConnectionHandler::getConnection()->prepare($query);
+        $statement->bind_param('s', $un);
+
+        $result = $statement->execute();
+
+        $result = $statement->get_result();
+
+        $statement->close();
+
+        // Ersten Datensatz aus dem Reultat holen
+        $row = $result->fetch_object();
+
+        if(!$result)
+        {
+            throw new Exception($statement->error);
+        }
+
+        return $row->id;
+    }
 
 
-    //        //toDo: Error Handling DB Connection
-    //        // Create connection
-    //        $conn = new mysqli($servername, $username, $password, $dbname);
-    //        // Check connection
-    //        if ($conn->connect_error) {
-    //            die("Connection failed: " . $conn->connect_error);
-    //        }
     public function find($username, $pwd){
         $uQuery = "SELECT username FROM user WHERE username= ?";
 
@@ -117,12 +132,17 @@ class UserModel extends Model
 
     }
 
-    public function ajaxUserandEmail($un){
+    public function ajaxUserandEmail($searchterm, $mailoruser){
 
-        $query = "Select * from $this->tableName where username = ?";
+        if($mailoruser == "user"){
+            $query = "Select * from $this->tableName where username = ?";
+        }else{
+            $query = "Select * from $this->tableName where email = ?";
+        }
+
 
         $statement = ConnectionHandler::getConnection()->prepare($query);
-        $statement->bind_param('s', $un);
+        $statement->bind_param('s', $searchterm);
 
         $ok = $statement->execute();
         $result = $statement->get_result();
