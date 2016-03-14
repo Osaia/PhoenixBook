@@ -12,13 +12,13 @@
         <div class="form-group">
             <label class="col-md-2 control-label" for="firstNameRegis">First name</label>
             <div class="col-md-4">
-                <input id="firstNameRegis" name="surname" type="text" placeholder="First name" class="form-control input-md">
+                <input id="firstNameRegis" name="surname" type="text" placeholder="First name" class="form-control input-md" value="<?= $surname ?>">
             </div>
         </div>
         <div class="form-group">
             <label class="col-md-2 control-label" for="lastNameRegis">Last name</label>
             <div class="col-md-4">
-                <input id="lastNameRegis" name="name" type="text" placeholder="Last name" class="form-control input-md">
+                <input id="lastNameRegis" name="name" type="text" placeholder="Last name" class="form-control input-md" value="<?= $name ?>">
             </div>
         </div>
         <div class="form-group">
