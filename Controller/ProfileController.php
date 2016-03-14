@@ -21,19 +21,12 @@ class ProfileController{
         }
         $userModel = new UserModel();
 
-        $query_username = mysql_query("SELECT username FROM user WHERE username='".$uName."'");
-        $query_pwd = mysql_query("SELECT username FROM user WHERE username='".$uName."'");
 
-        if (mysql_num_rows($query_username) == 0)
+        if ($userModel->find($uName, $password))
         {
-            //todo JESSICA: Konvertieren des PWDs und suchen und übereinstimmung finden 
-
-            $query_pwd = mysql_query("SELECT password FROM user where username='".$uName."'");
-           if(mysql_num_rows($query_pwd)){
-
-           }
+            header('Location: /entries');
         }else{
-            echo "Username already exists";
+            echo "Wrong username";
         }
 
 

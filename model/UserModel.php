@@ -71,4 +71,38 @@ class UserModel extends Model
 
         return $result;
     }
+
+
+
+    //        //toDo: Error Handling DB Connection
+    //        // Create connection
+    //        $conn = new mysqli($servername, $username, $password, $dbname);
+    //        // Check connection
+    //        if ($conn->connect_error) {
+    //            die("Connection failed: " . $conn->connect_error);
+    //        }
+    public function find($username, $pwd){
+        $pwd = sha1($pwd);
+
+        $uQuery = "SELECT username FROM user WHERE username='".$username."'";
+
+        $statement = ConnectionHandler::getConnection()->prepare($uQuery);
+
+        $result = $statement->execute();
+
+        if($result){
+            $pQuery = "SELECT password FROM user where password='".$pwd."'";
+            $statement = ConnectionHandler::getConnection()->prepare($pQuery);
+
+            $result = $statement->execute();
+            if($result){
+                return true;
+            }else{
+                return false;
+            }
+        }else{
+            return false;
+        }
+
+    }
 }

@@ -37,8 +37,8 @@ var RegisForm = {
     //'other than underscore. ' +    'Username must be of length ranging(3-30). ' +
     //'starting letter should be a ' +
     //'number or a character.
-    patUsername: /^[a-zA-Z0-9][a-zA-Z0-9_]{4,29}$/,
-    patName: /^[a-zA-Z0-9]{3,20}$/,
+    patUsername: /^[a-zA-Z0-9_äÄöÖüÜß][a-zA-Z0-9_]{4,29}$/,
+    patName: /^[a-zA-Z0-9_äÄöÖüÜß]{3,20}$/,
     //Password expresion that requires one lower case letter,
     //one upper case letter, one digit, 6-13 length, and no spaces.
     patPwd: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{4,8}$/,

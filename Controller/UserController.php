@@ -114,7 +114,6 @@ class UserController
                 move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $profilbild);
             }
 
-
             $userModel->update($name, $surname, $password, $profilbild);
             //($username, $name, $surname, $email, $password, $profilbild)
         }
