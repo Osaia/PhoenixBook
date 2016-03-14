@@ -179,77 +179,6 @@ var RegisForm = {
 }
 
 
-
-
-/* Entries: Sidebar
- ****************************************/
-
-$(document).ready(function(){
-    $("#sidebar-big").hide();
-    $("#sidebar-small").show();
-    $("#open").click(function(){
-        $("#sidebar-big").toggle(1000);
-        $("#sidebar-small").toggle(1000);
-    });
-    $("#close").click(function(){
-        $("#sidebar-big").toggle(1000);
-        $("#sidebar-small").toggle(1000);
-    });
-});
-
-/* Entries: Hide Text function
-****************************************/
-
-//$(document).ready(function(){
-//
-//    var minimized_elements = $('p.txt-hidden');
-//
-//    minimized_elements.each(function(){
-//        var t = $(this).text();
-//        if(t.length < 300) return;
-//
-//        $(this).html(
-//            t.slice(0,300)+'<span>... </span><a href="#" class="more"><span class="glyphicon glyphicon-menu-down"></span></a>'+
-//            '<span style="display:none;">'+ t.slice(300,t.length)+' <a href="#" class="less"><span class="glyphicon glyphicon-menu-up"></span></a></span>'
-//        );
-//
-//    });
-//
-//    $('a.more', minimized_elements).click(function(event){
-//        event.preventDefault();
-//        $(this).hide().prev().hide();
-//        $(this).next().show();
-//    });
-//
-//    $('a.less', minimized_elements).click(function(event){
-//        event.preventDefault();
-//        $(this).parent().hide().prev().show().prev().show();
-//    });
-//
-//});
-//
-//
-//
-//// Initiating the Script...
-//$(function (){
-//    if($('#submitLogin').length != 0) {
-//        loginForm.init();
-//    }
-//
-//    if($('#submitRegis').length != 0){
-//        RegisForm.init()
-//    }
-//
-//    if($('#sidebar-small').length != 0){
-//        Entries.init();
-//    }
-//
-//
-//
-//});
-
-
-
 var Entries = {
 
     init: function () {
@@ -300,6 +229,76 @@ var Entries = {
 
 //End Emtries
 }
+
+
+/* Entries: Sidebar
+ ****************************************/
+
+//$(document).ready(function(){
+//    $("#sidebar-big").hide();
+//    $("#sidebar-small").show();
+//    $("#open").click(function(){
+//        $("#sidebar-big").toggle(1000);
+//        $("#sidebar-small").toggle(1000);
+//    });
+//    $("#close").click(function(){
+//        $("#sidebar-big").toggle(1000);
+//        $("#sidebar-small").toggle(1000);
+//    });
+//});
+
+/* Entries: Hide Text function
+****************************************/
+
+//$(document).ready(function(){
+//
+//    var minimized_elements = $('p.txt-hidden');
+//
+//    minimized_elements.each(function(){
+//        var t = $(this).text();
+//        if(t.length < 300) return;
+//
+//        $(this).html(
+//            t.slice(0,300)+'<span>... </span><a href="#" class="more"><span class="glyphicon glyphicon-menu-down"></span></a>'+
+//            '<span style="display:none;">'+ t.slice(300,t.length)+' <a href="#" class="less"><span class="glyphicon glyphicon-menu-up"></span></a></span>'
+//        );
+//
+//    });
+//
+//    $('a.more', minimized_elements).click(function(event){
+//        event.preventDefault();
+//        $(this).hide().prev().hide();
+//        $(this).next().show();
+//    });
+//
+//    $('a.less', minimized_elements).click(function(event){
+//        event.preventDefault();
+//        $(this).parent().hide().prev().show().prev().show();
+//    });
+//
+//});
+//
+//
+//
+// Initiating the Script...
+$(function (){
+    if($('#submitLogin').length != 0) {
+        loginForm.init();
+    }
+
+    if($('#submitRegis').length != 0){
+        RegisForm.init()
+    }
+
+    if($('#sidebar-small').length != 0){
+        Entries.init();
+    }
+
+
+});
+
+
+
 
 
 
