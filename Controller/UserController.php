@@ -68,8 +68,8 @@ class UserController
 
     public function validate($un, $n, $sn, $em, $pwd){
         $emailPat = '/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/';
-        $usernamePat = '/^[a-zA-Z0-9][a-zA-Z0-9_]{4,29}$/';
-        $namePat = '/^[a-zA-Z0-9]{3,20}$/';
+        $usernamePat = '/^[a-zA-Z0-9][a-zA-Z0-9_]{3,29}$/';
+        $namePat = '/^[a-zA-Z0-9_äÄöÖüÜß]{3,20}$/';
         $pwdPat = '/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{4,8}$/';
 
         if(preg_match($usernamePat, $un)){
@@ -95,7 +95,8 @@ class UserController
                 return false;
             }
         }else{
-            echo 'username';
+           // echo 'username';
+            echo '<div style="background-color: antiquewhite;height: 500px;width: 500px">Salü</div>';
             return false;
         }
 

@@ -16,8 +16,8 @@ class ProfileController{
 
     public function login(){
         if($_POST['submit']){
-            $uName = $_POST['Username'];
-            $password = $_POST['Password'];
+            $uName = $_POST['username'];
+            $password = $_POST['password'];
         }
         $userModel = new UserModel();
 
