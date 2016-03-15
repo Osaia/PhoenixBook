@@ -216,7 +216,7 @@ var RegisForm = {
                             if($('#passwordRegis').val() == $('#password2Regis').val()){
                                 return true;
                             }else{
-                                alert('Niggha.. Those passwords are not equal... CANT YOU SEE? ...Oh right.. You cant, my bad..*LMFAO* Try again...');
+                                alert('Bruh.. Those passwords are not equal... CANT YOU SEE? ...Oh right.. You cant, my bad..*LMFAO* Try again...');
                                 return false;
                             }
                         }else{

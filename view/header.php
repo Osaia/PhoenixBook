@@ -33,7 +33,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" id="navBrand" href="/">PhoenixBook</a>
+          <a class="navbar-brand" id="navBrand" href="/entries">PhoenixBook</a>
         </div>
         <?php
           if(isset($_SESSION['userid'])){
