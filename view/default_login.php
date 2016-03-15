@@ -1,5 +1,10 @@
 
 <!-- Full Page Image Background Carousel Header -->
+<?php
+    if(isset($_SESSION['userid'])){
+        header('Location: /entries');
+    }
+?>
 
 
     <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
