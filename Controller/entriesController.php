@@ -36,14 +36,12 @@ class entriesController
         header('Location: /entries');
     }
 
-    public function find($userid){
-
-    }
-
     public function delete()
     {
+        $id = $_GET['id'];
         $entryModel = new EntrysModel();
-        $entryModel->deleteById($_GET['id']);
+
+        $entryModel->deleteById($id);
 
         // Anfrage an die URI /user weiterleiten (HTTP 302)
         header('Location: /entries');

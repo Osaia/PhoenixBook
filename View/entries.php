@@ -11,6 +11,7 @@ if(isset($_SESSION['userid'])){
 //                    echo '<pre>';
 //                    var_dump($_SESSION);
 //                    echo '</pre>';
+    $controller = new entriesController();
     $model = new EntrysModel();
     $entries = $model->show(100);
 
@@ -25,7 +26,11 @@ if(isset($_SESSION['userid'])){
                                 <h5 class="media-heading">'.$entry["username"]. '</h5>
                             </div>
                             <div class="col-xs-2 col-ld-2 col-md-offset-7">
-                                <a href=""><p><span class="glyphicon glyphicon-remove"></span></p></a>
+                                ';
+                                if ($_SESSION['userid'] == $entry['user_id']) {
+                                    echo '<a href = "entries/delete?id='.$entry["id"].'" ><p ><span class="glyphicon glyphicon-remove" ></span ></p ></a >';
+                                    }
+                                echo '
                             </div>
                         </div>
                         <div class="entries-txt">
