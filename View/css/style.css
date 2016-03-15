@@ -32,6 +32,17 @@ h1,h2,h3,h4{
   margin: 0 20px;
 }
 
+/* Header
+**************************************************/
+.navbar-uname{
+  color: goldenrod;
+}
+
+.navbar-picture{
+  max-height: 50px;
+  max-width: 50px;
+}
+
 /* Login and Logout: Jessica
 *************************************************/
 
