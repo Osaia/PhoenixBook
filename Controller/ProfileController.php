@@ -28,14 +28,7 @@ class ProfileController{
             $_SESSION['profilbild'] = $userModel->getProfilpicture($uName);
             header('Location: /entries');
         }else{
-
-            echo '<script type="text/javascript">
-                    $(function(){
-                        if($("#loginNotification")[0].className == "hidden"){
-                            $("#loginNotification").removeClass("hidden");
-                        }
-                    });
-                 </script>';
+            header('Location: /');
         }
 
 

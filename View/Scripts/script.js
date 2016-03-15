@@ -14,7 +14,11 @@ var loginForm = {
         $("#passwordLogin").focus(function() {
             console.log('in');
         }).blur(function() {
-            console.log('out');
+            if($("#passwordLogin").is(':empty')){
+                $('#submitLogin').prop( "disabled", true );
+            }else{
+                $('#submitLogin').prop( "disabled", false );
+            }
         });
         $("#usernameLogin").focus(function() {
 
