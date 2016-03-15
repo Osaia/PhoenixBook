@@ -56,7 +56,10 @@
 		</div>
 	</div>
 
-	<div id="regisNotification">
-		Meldung
+	<div id="unNotification" class="hidden bg-warning">
+		Sorry, but that username already exists in the Database
+	</div>
+	<div id="emailNotification" class="hidden bg-warning">
+		Sorry, but a user with that Email adress already exists in the database
 	</div>
 </form>

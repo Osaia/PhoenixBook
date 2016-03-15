@@ -100,13 +100,17 @@ var RegisForm = {
                         //exist = false;
                         $('#usernameRegis')[0].className = 'form-control input-md';
                         $('#usernameRegis').addClass('onSuccess');
-                        //MELDUNG APPEARS
+                        $('#unNotification').addClass('hidden');
+
                     }else{
                         //exist = true;
                         $('#usernameRegis')[0].className = 'form-control input-md';
                         $('#usernameRegis').addClass('onError');
+                        $('#unNotification').removeClass('hidden');
+
                     }
                 });
+
         });
 
         $('#emailRegis').focus(function () {
@@ -123,10 +127,12 @@ var RegisForm = {
                         //exist = false;
                         $('#emailRegis')[0].className = 'form-control input-md';
                         $('#emailRegis').addClass('onSuccess');
+                        $('#emailNotification').addClass('hidden');
                     }else{
                         //exist = true;
                         $('#emailRegis')[0].className = 'form-control input-md';
                         $('#emailRegis').addClass('onError');
+                        $('#emailNotification').removeClass('hidden');
                     }
                 });
         });
@@ -157,10 +163,6 @@ var RegisForm = {
             }
         });
         //FILE UPLOAD ??
-    },
-
-    notifications: function(){
-        $('#regisNotification');
     },
 
     finalValidation: function(){
