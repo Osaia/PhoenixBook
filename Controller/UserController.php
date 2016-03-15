@@ -49,7 +49,7 @@ class UserController
                 //todo message: not a valid format
             }
 
-            if($this->validate($username, $name, $surname, $email,$password)){
+            if($this->validate($username, $name, $surname, $email,$password, false)){
 
                 $userModel = new UserModel();
 
@@ -62,14 +62,14 @@ class UserController
 
     }
 
-    public function validate($un, $n, $sn, $em, $pwd){
+    public function validate($un, $n, $sn, $em, $pwd, $noemneed){
         $emailPat = '/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/';
         $usernamePat = '/^[a-zA-Z0-9][a-zA-Z0-9_]{3,29}$/';
         $namePat = '/^[a-zA-Z0-9_äÄöÖüÜß]{3,20}$/';
         $pwdPat = '/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{4,8}$/';
 
         if(preg_match($usernamePat, $un)){
-            if(preg_match($emailPat, $em)){
+            if(preg_match($emailPat, $em) || $noemneed){
                 if(preg_match($pwdPat, $pwd)){
                     if(preg_match($namePat, $n) || empty($n)){
                         if(preg_match($namePat, $sn) || empty($sn)){
@@ -122,8 +122,7 @@ class UserController
                 move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $profilbild);
             }
 
-            $userModel->update($name, $surname, $password, $profilbild);
-            //($username, $name, $surname, $email, $password, $profilbild)
+            $userModel->update($name, $surname, $password, $profilbild, true);
         }
 
         // Anfrage an die URI /user weiterleiten (HTTP 302)
