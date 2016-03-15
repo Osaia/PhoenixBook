@@ -64,14 +64,21 @@ class UserModel extends Model
         $statement = ConnectionHandler::getConnection()->prepare($query);
         $statement->bind_param('s', $username);
 
-        $result = $statement->execute();
+        $ok = $statement->execute();
 
-        if(!$result)
+        $result = $statement->get_result();
+
+        $statement->close();
+
+        // Ersten Datensatz aus dem Reultat holen
+        $row = $result->fetch_object();
+
+        if(!$ok)
         {
             throw new Exception($statement->error);
         }
 
-        return $result;
+        return $row->profilbild;
     }
 
     public function getUserIDbyName($un){
