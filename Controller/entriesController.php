@@ -17,7 +17,7 @@ class entriesController
     public function create() {
         $entriesModel = new EntrysModel();
         $userid = $_SESSION['userid'];
-        $txt = $_POST['textField'];
+        $txt = htmlspecialchars($_SESSION['textField']);
         $date = date('Y M d');
         $bildpath = "-";
         $entries = $entriesModel->getCount() + 1;
@@ -25,13 +25,11 @@ class entriesController
         $allowed =  array('gif','png' ,'jpg');
         $ext = pathinfo($_FILES['uploadPicture']['name'], PATHINFO_EXTENSION);
         $tmppath = $_FILES['uploadPicture']['tmp_name'];
-        var_dump($_FILES['uploadPicture']);
 
         if(isset($_FILES['uploadPicture']) && in_array($ext,$allowed))
         {
             $bildpath = "./uploads/bild" . $entries . "." .  $ext;
-            $test = move_uploaded_file($tmppath, $bildpath);
-            echo $test;
+            move_uploaded_file($tmppath, $bildpath);
         }elseif(!in_array($ext,$allowed)){
             //todo message: not a valid format
         }
