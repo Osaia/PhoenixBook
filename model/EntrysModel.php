@@ -25,7 +25,7 @@ class EntrysModel extends Model
      */
     public function create($userid, $text, $date, $bild)
     {
-        $query = "INSERT INTO $this->tableName (user_id, text, date, bild) VALUES (?, ?, ?, ?, ?)";
+        $query = "INSERT INTO $this->tableName (user_id, text, date, bild) VALUES (?, ?, ?, ?)";
 
         $statement = ConnectionHandler::getConnection()->prepare($query);
         $statement->bind_param('isss',$userid, $text, $date, $bild);
@@ -77,6 +77,18 @@ class EntrysModel extends Model
         $statement->close();
     }
 
+    public function getCount(){
+        $query = "SELECT COUNT(*) AS count FROM entrys";
+
+        $statement = ConnectionHandler::getConnection()->prepare($query);
+
+        $ok = $statement->execute();
+
+        $result = $statement->get_result();
+        $obj = $result->fetch_object();
+
+        return $obj->count;
+    }
 
 }
 

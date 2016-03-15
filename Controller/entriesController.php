@@ -15,14 +15,24 @@ class entriesController
     }
 
     public function create() {
+        $entriesModel = new EntrysModel();
         $userid = $_SESSION['id'];
         $txt = $_POST['textField'];
         $date = date('Y M d');
-        $bild = $_POST['uploadPicture'];
+        $bildpath = "-";
+        $entries = $entriesModel->getCount() + 1;
+
+
+
+        if(isset($_FILES['fileToUpload']))
+        {
+            $bildpath = "/uploads/bild" . $entries . ".jpg";
+            move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $bildpath);
+        }
 //        $likes = 0;
 
-        $entriesModel = new EntrysModel();
-        $entriesModel->create($userid, $txt, $date, $bild);
+
+        $entriesModel->create($userid, $txt, $date, $bildpath);
     }
 
     public function find($userid){
