@@ -40,18 +40,21 @@
             echo '
                 <div class="col-xs-12 col-ld-12">
                   <div class="col-xs-8 col-ld-8">
-                    <div id="navbar" class="collapse navbar-collapse">
-                      <ul class="nav navbar-nav">
-                        <li><a href="/editProfile">Edit Profile</a></li>
-                      </ul>
-                    </div><!--/.nav-collapse -->
                   </div>
               <div class="col-xs-4 col-ld-4">
                 <div class="col-xs-6 col-ld-6">
-                    <form method="post" action="profile/logout">
-                      <input type="submit" value="Edit Profile" class="profileBtn btn btn-warning"/>
-                      <input type="submit" value="Logout" class="profileBtn btn btn-warning"/>
-                    </form>
+                    <div class="col-xs-6 col-ld-6">
+                        <form method="post" action="profile/logout">
+                              <input type="submit" value="Logout" class="logoutBtn btn btn-warning"/>
+                            </form>
+                    </div>
+
+                    <div class="col-xs-6 col-ld-6">
+                       <form method="post" action="editProfile/index">
+                        <input type="submit" value="Edit Profile" class="editProfilBtn btn btn-warning"/>
+                      </form>
+                    </div>
+
                 </div>
                 <div class="col-xs-6 col-ld-6">
                     <div class="col-xs-4 col-ld-4">
