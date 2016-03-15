@@ -187,6 +187,8 @@ var RegisForm = {
     }
 }
 
+/* Klasse Entries
+************************/
 
 var Entries = {
 

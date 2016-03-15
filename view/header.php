@@ -35,15 +35,14 @@
           </button>
           <a class="navbar-brand" id="navBrand" href="/">PhoenixBook</a>
         </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="/">Home</a></li>
-            <li><a href="/editProfile">User</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
         <?php
           if(isset($_SESSION['userid'])){
             echo '
+            <div id="navbar" class="collapse navbar-collapse">
+              <ul class="nav navbar-nav">
+                <li><a href="/editProfile">Edit Profile</a></li>
+              </ul>
+            </div><!--/.nav-collapse -->
             <form method="post" action="profile/logout">
                 <input id="logout" type="submit" value="Logout"/>
             </form>
