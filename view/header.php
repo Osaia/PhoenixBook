@@ -33,7 +33,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" id="navBrand" href="/">PhoenixBook</a>
+          <a class="navbar-brand" id="navBrand" href="/entries">PhoenixBook</a>
         </div>
         <?php
           if(isset($_SESSION['userid'])){
@@ -43,7 +43,6 @@
                 <div id="navbar" class="collapse navbar-collapse">
                   <ul class="nav navbar-nav">
                     <li><a href="/editProfile">Edit Profile</a></li>
-                    <li><a href="/entries">Home</a></li>
                   </ul>
                 </div><!--/.nav-collapse -->
               </div>
