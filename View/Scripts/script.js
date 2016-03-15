@@ -12,14 +12,11 @@ var loginForm = {
         });
 
         $("#passwordLogin").focus(function() {
-            console.log('in');
+
         }).blur(function() {
-            if($("#passwordLogin").is(':empty')){
-                $('#submitLogin').prop( "disabled", true );
-            }else{
-                $('#submitLogin').prop( "disabled", false );
-            }
+
         });
+
         $("#usernameLogin").focus(function() {
 
         }).blur(function() {
@@ -35,7 +32,7 @@ var loginForm = {
                     if(worked == "notexists"){
                         $('#submitLogin').prop( "disabled", true );
 
-                        $('#loginNotification')[0].innerHTML = 'Sorry, but a user with that Email adress already exists in the database';
+                        $('#loginNotification')[0].innerHTML = 'No such user found. Please register for an account';
                         $('#loginNotification').removeClass('hidden');
 
                         $('#usernameLogin')[0].className = 'form-control onError';
