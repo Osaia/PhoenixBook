@@ -174,6 +174,11 @@ h1,h2,h3,h4{
   width: 50px;
 }
 
+.picture-entry {
+  max-height: 300px;
+  max-width: 300px;
+}
+
 /* Sidebar: Janik
 *******************************/
 .sidebar-top{
@@ -185,6 +190,11 @@ h1,h2,h3,h4{
 
 .float-right {
   float: right;
+}
+
+.upload {
+  margin-top: 50px;
+  color: white;
 }
 
 .float-left {

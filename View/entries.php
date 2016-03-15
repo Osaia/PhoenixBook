@@ -34,7 +34,7 @@ if(isset($_SESSION['userid'])){
                             </p>
                             ';
         if ($entry['bild'] != "-") {
-            echo '<div><img src="'.$entry["bild"].'"></div>';
+            echo '<div><img src="'.$entry["bild"].'" class="picture-entry"></div>';
         };
         echo '
                             </div>
@@ -56,7 +56,7 @@ if(isset($_SESSION['userid'])){
                         </div>
                         <div class="col-xs-10 col-ld-10 col-md-offset-1">
                             <div class="col-md-4">
-                                <input type="file" name="uploadPicture" id="fileToUploadRegis" class="">
+                                <input type="file" name="uploadPicture" id="fileToUploadRegis" class="upload">
                             </div>
                             <button type="submit" name="uploadText" class="btn btn-default" aria-label="Left Align">
                                 <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
