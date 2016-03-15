@@ -48,7 +48,8 @@
                 <input id="logout" type="submit" value="Logout"/>
             </form>
             <div>
-                <p>'.$_SESSION['userid'].'</p>
+                <p>'.$_SESSION['username'].'</p>
+                <img src="'.$_SESSION['profilbild'].'">
             </div>
             ';
           }
