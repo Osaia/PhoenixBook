@@ -1,7 +1,7 @@
 <?php
 if(isset($_SESSION['userid'])) {
     ?>
-<form id="registerform" class="form-horizontal" action="/user/doUpdate" method="post" enctype="multipart/form-data">
+<form id="updateForm" class="form-horizontal" action="/user/doUpdate" method="post" enctype="multipart/form-data">
     <div class="component" data-html="true">
         <div class="form-group">
             <label class="col-md-2 control-label" for="fileToUploadRegis">Select image to upload:</label>
@@ -39,7 +39,7 @@ if(isset($_SESSION['userid'])) {
         <div class="form-group">
             <label class="col-md-2 control-label" for="send">&nbsp;</label>
             <div class="col-md-4">
-                <input id="submitRegis" name="send" type="submit" value="Submit" class="btn btn-warning">
+                <input id="submitUpdate" name="send" type="submit" value="Submit" class="btn btn-warning">
             </div>
         </div>
     </div>
