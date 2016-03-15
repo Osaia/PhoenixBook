@@ -48,9 +48,9 @@
               </div>
               <div class="col-xs-4 col-ld-4">
                 <div class="col-xs-6 col-ld-6">
-                    <form method="post" action="profile/logout">
+                  <form method="post" action="profile/logout">
                     <input id="logout" type="submit" value="Logout" class="btn btn-warning"/>
-                </form>
+                  </form>
               </div>
               <div class="col-xs-6 col-ld-6">
                 <div class="col-xs-6 col-ld-6 navbar-uname">

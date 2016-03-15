@@ -51,7 +51,7 @@
 		<div class="form-group">
 	      <label class="col-md-2 control-label" for="send">&nbsp;</label>
 		  <div class="col-md-4">
-		    <input id="submitRegis" name="send" type="submit" value="Submit" class="btn btn-primary">
+		    <input id="submitRegis" name="send" type="submit" value="Submit" class="btn btn-warning">
 		  </div>
 		</div>
 	</div>

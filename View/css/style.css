@@ -24,7 +24,6 @@ h1,h2,h3,h4{
 #navBrand{
   position: absolute;
   left: 20px;
-
   font-size: 30px;
 }
 
@@ -36,11 +35,13 @@ h1,h2,h3,h4{
 **************************************************/
 .navbar-uname{
   color: goldenrod;
+  margin: 13px 0 1px 0;
 }
 
 .navbar-picture{
   max-height: 50px;
   max-width: 50px;
+  margin: 0 10px 0 10px;
 }
 
 /* Login and Logout: Jessica
@@ -66,6 +67,7 @@ h1,h2,h3,h4{
   position: absolute;
   top:0;
   right: 0;
+  margin: 8px;
 }
 
 #login span{
@@ -215,7 +217,7 @@ footer{
   position: absolute;
   bottom: 0;
   width:100%;
-  background-color: #404040;
+  background-color: #222;
   height: 40px;
   color: lightgrey;
 }
