@@ -1,18 +1,21 @@
-
+<?php
+if(isset($_SESSION['userid'])){
+    echo'
     <div ID="entriesWrapper" class="col-xs-12 col-ld-12">
         <div id="entries-background" class="col-xs-12 col-ld-12">
             <div class="col-xs-9 col-ld-9">
                  <div class="col-xs-9 col-ld-9 col-md-offset-1" id="entries-container">
-                    <?php
+    ';
+    //<?php
 
 //                    echo '<pre>';
 //                    var_dump($_SESSION);
 //                    echo '</pre>';
-                    $model = new EntrysModel();
-                    $entries = $model->show(100);
+    $model = new EntrysModel();
+    $entries = $model->show(100);
 
-                    foreach($entries as $entry) {
-                        echo '
+    foreach($entries as $entry) {
+        echo '
                      <div class="entries">
                         <div class="entries-header">
                             <div class="col-xs-1 col-ld-1">
@@ -25,21 +28,22 @@
 //                                <p>'.$entry["likes"].'</p>
 //                                <a href=""><p><span class="glyphicon glyphicon-heart"></span></p></a>
 //                            </div>
-                        echo'
+        echo'
                         </div>
                         <div class="entries-txt">
                             <p class="txt-hidden">
                                 ' . $entry["text"] . '
                             </p>
                             ';
-                            if (isset($profilbild)) {
-                                echo '<div><img src="'.$entry["bild"].'"></div>';
-                            };
-                        echo '
+        if (isset($profilbild)) {
+            echo '<div><img src="'.$entry["bild"].'"></div>';
+        };
+        echo '
                             </div>
                         </div>';
-                    };
-                    ?>
+    };
+
+    echo'
              </div>
             <div class="col-xs-3 col-ld-3 sidebar-top">
                 <form method="post" action="entries/create" id="newEntryForm" enctype="multipart/form-data">
@@ -70,6 +74,11 @@
             </div>
         </div>
     </div>
-<?php
+';
+}else{
+    header('Location: /');
+}
+
+
 
 ?>

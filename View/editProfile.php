@@ -1,3 +1,6 @@
+<?php
+if(isset($_SESSION['userid'])) {
+    echo'
 <form id="registerform" class="form-horizontal" action="/user/doUpdate" method="post" enctype="multipart/form-data">
     <div class="component" data-html="true">
         <div class="form-group">
@@ -41,3 +44,10 @@
         </div>
     </div>
 </form>
+';
+}else{
+    header('Location: /');
+}
+
+
+?>
