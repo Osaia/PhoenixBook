@@ -4,9 +4,9 @@ return array(
 
     'database' => array(
         'host' => 'localhost',
-        'username' => 'root',
-        'password' => '',
-        'database' => 'phoenixbook',
+        'username' => 'bherrlsql1',
+        'password' => 'Louis12',
+        'database' => 'bherrlsql1',
     ),
 
 );
