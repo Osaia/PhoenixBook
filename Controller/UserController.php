@@ -113,6 +113,7 @@ class UserController
             $surname = (!isset($_POST['surname'])) ? $user->surname : $_POST['surname'];
             $password = (!isset($_POST['password'])) ? $user->password : sha1($_POST['password']);
             $profilbild = $user->profilbild;
+            //profilbild wird erst nach einem Logout geändert
 
 
             if(isset($_FILES['fileToUpload'])){

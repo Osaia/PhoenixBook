@@ -45,7 +45,6 @@ class UserModel extends Model
 
     public function update($username, $name, $surname, $password, $profilbild)
     {
-        $password = sha1($password);
 
         $query = "UPDATE $this->tableName SET name = ?, surname = ?, password = ?, profilbild = ? WHERE username = ?";
 

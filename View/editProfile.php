@@ -15,7 +15,7 @@ if(isset($_SESSION['userid'])) {
         <div class="form-group">
             <label class="col-md-2 control-label" for="firstNameRegis">First name</label>
             <div class="col-md-4">
-                <input id="firstNameRegis" name="surname" type="text" placeholder="First name" class="form-control input-md" value=" <?= $surname ?>">
+                <input id="firstNameRegis" name="surname" type="text" placeholder="First name" class="form-control input-md" value="<?= $surname ?>">
             </div>
         </div>
         <div class="form-group">
