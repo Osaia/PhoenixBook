@@ -42,7 +42,7 @@
                     ?>
              </div>
             <div class="col-xs-3 col-ld-3 sidebar-top">
-                <form method="post" action="entries/create" id="newEntryForm">
+                <form method="post" action="entries/create" id="newEntryForm" enctype="multipart/form-data">
                     <div id="sidebar-big" class="col-xs-10 col-ld-10">
                         <div class="btn-open-sidebar">
                             <button id="open" type="button" class="btn btn-default" aria-label="Left Align">
