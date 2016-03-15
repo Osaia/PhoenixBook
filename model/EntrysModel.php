@@ -27,12 +27,13 @@ class EntrysModel extends Model
     {
         $query = "INSERT INTO $this->tableName (user_id, text, date, bild) VALUES (?, ?, ?, ?)";
 
+
         $statement = ConnectionHandler::getConnection()->prepare($query);
         $statement->bind_param('isss',$userid, $text, $date, $bild);
 
         $result = $statement->execute();
 
-        if ($result) {
+        if (!$result) {
             throw new Exception($statement->error);
         }
     }

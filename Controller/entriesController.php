@@ -16,7 +16,7 @@ class entriesController
 
     public function create() {
         $entriesModel = new EntrysModel();
-        $userid = $_SESSION['id'];
+        $userid = $_SESSION['userid'];
         $txt = $_POST['textField'];
         $date = date('Y M d');
         $bildpath = "-";
