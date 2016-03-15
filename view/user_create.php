@@ -56,10 +56,14 @@
 		</div>
 	</div>
 
-	<div id="unNotification" class="hidden bg-warning">
-		Sorry, but that username already exists in the Database
+	<div id="notification" class="hidden alert alert-danger">
+
 	</div>
-	<div id="emailNotification" class="hidden bg-warning">
-		Sorry, but a user with that Email adress already exists in the database
+	<div id="emailNotification" class="hidden alert alert-danger">
+
+	</div>
+
+	<div id="hints" class="hidden alert alert-info">
+		HINTS
 	</div>
 </form>

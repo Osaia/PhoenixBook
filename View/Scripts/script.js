@@ -36,7 +36,7 @@ var RegisForm = {
     //Only emails allowed
     patEmail: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
     //A regexp for general username entry. Which doesn't allow special characters ' +
-    //'other than underscore. ' +    'Username must be of length ranging(3-30). ' +
+    //'other than underscore. ' +    'Username must be of length ranging(3-29). ' +
     //'starting letter should be a ' +
     //'number or a character.
     patUsername: /^[a-zA-Z0-9_äÄöÖüÜß][a-zA-Z0-9_]{3,29}$/,
@@ -60,8 +60,10 @@ var RegisForm = {
         });
 
         $('#firstNameRegis').focus(function(){
-
+            $('#hints')[0].innerHTML = 'Please Enter a valid First name. This can only contain Letters (lowercase and uppercase). <br> The following German chars are also allowed: Ä Ü Ö ß. The max Length of the name is 20 chars and at least 3 chars';
+            $('#hints').removeClass('hidden');
         }).blur(function(){
+            $('#hints').addClass('hidden');
             if(RegisForm.patName.test(this.value) == true){
                 this.className = 'form-control input-md';
                 $(this).addClass('onSuccess');
@@ -72,8 +74,10 @@ var RegisForm = {
         });
 
         $('#lastNameRegis').focus(function(){
-
+            $('#hints')[0].innerHTML = 'Please Enter a valid last name. This can only contain Letters (lowercase and uppercase). <br> The following German chars are also allowed: Ä Ü Ö ß. The max Length of the name is 20 chars and at least 3 chars';
+            $('#hints').removeClass('hidden');
         }).blur(function () {
+            $('#hints').addClass('hidden');
             if(RegisForm.patName.test(this.value) == true){
                 this.className = 'form-control input-md';
                 $(this).addClass('onSuccess');
@@ -87,8 +91,10 @@ var RegisForm = {
         //When the field 'Username' is entered, and then left, an AJAX CALL makes shure that the selected username doesnt already exist in the database.
         //In case it exists, it will mark the field Red
         $('#usernameRegis').focus(function(){
-            //alert('in');
+            $('#hints')[0].innerHTML = 'Doesnt allow special characters other than underscore. Username must be of length ranging(3-29) starting char should be a number or a character';
+            $('#hints').removeClass('hidden');
         }).blur(function(){
+            $('#hints').addClass('hidden');
             $.ajax({
                     method: 'POST',
                     data: {username: $('#usernameRegis').val(), type: "user"},
@@ -100,13 +106,14 @@ var RegisForm = {
                         //exist = false;
                         $('#usernameRegis')[0].className = 'form-control input-md';
                         $('#usernameRegis').addClass('onSuccess');
-                        $('#unNotification').addClass('hidden');
+                        $('#notification').addClass('hidden');
 
                     }else{
                         //exist = true;
                         $('#usernameRegis')[0].className = 'form-control input-md';
                         $('#usernameRegis').addClass('onError');
-                        $('#unNotification').removeClass('hidden');
+                        $('#notification')[0].innerHTML = 'Sorry, but that username already exists in the Database';
+                        $('#notification').removeClass('hidden');
 
                     }
                 });
@@ -114,8 +121,11 @@ var RegisForm = {
         });
 
         $('#emailRegis').focus(function () {
-
+            $('#hints')[0].innerHTML = 'Enter a valid Email adress. Example: abc@abc.ch';
+            $('#hints').removeClass('hidden');
         }).blur(function(){
+            $('#hints').addClass('hidden');
+
             $.ajax({
                     method: 'POST',
                     data: {email: $('#emailRegis').val(), type: "email"},
@@ -132,6 +142,7 @@ var RegisForm = {
                         //exist = true;
                         $('#emailRegis')[0].className = 'form-control input-md';
                         $('#emailRegis').addClass('onError');
+                        $('#emailNotification')[0].innerHTML = 'Sorry, but a user with that Email adress already exists in the database';
                         $('#emailNotification').removeClass('hidden');
                     }
                 });
@@ -139,8 +150,11 @@ var RegisForm = {
 
         $('#passwordRegis').focus(function(){
             $('#password2Regis').val('');
-            var t = 0;
+            $('#hints')[0].innerHTML = 'Password expresion that requires one lower case letter,one upper case letter, one digit, 6-13 length, and no spaces.';
+            $('#hints').removeClass('hidden');
         }).blur(function(){
+            $('#hints').addClass('hidden');
+
             if(RegisForm.patPwd.test(this.value) == true){
                 this.className = 'form-control input-md';
                 $(this).addClass('onSuccess');
@@ -151,9 +165,10 @@ var RegisForm = {
         });
 
         $('#password2Regis').focus(function () {
-
+            $('#hints')[0].innerHTML = 'Please, enter the exact same password as you chose above';
+            $('#hints').removeClass('hidden');
         }).blur(function(){
-            var tm = 0;
+            $('#hints').addClass('hidden');
             if($('#passwordRegis').val() == this.value){
                 this.className = 'form-control input-md';
                 $(this).addClass('onSuccess');
