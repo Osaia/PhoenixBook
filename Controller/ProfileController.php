@@ -25,6 +25,8 @@ class ProfileController{
         if ($userModel->find($uName, $password))
         {
             $_SESSION['userid'] = $userModel->getUserIDbyName($uName);
+            $_SESSION['username'] = $uName;
+            $_SESSION['profilbild'] = $userModel->getProfilpicture($uName);
             header('Location: /entries');
         }else{
             echo "Wrong username or Password";
