@@ -36,14 +36,14 @@ class UserController
             $email = $_POST['email'];
             $password = $_POST['password'];
 
-            $profilbild = "/uploads/default.jpg";
+            $profilbild = "./uploads/default.jpg";
 
             $allowed =  array('gif','png' ,'jpg');
             $ext = pathinfo($_FILES['fileToUpload']['name'], PATHINFO_EXTENSION);
 
             if(isset($_FILES['fileToUpload']) && in_array($ext,$allowed))
             {
-                $profilbild = "/uploads/$username.$ext";
+                $profilbild = "./uploads/$username.$ext";
                 move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $profilbild);
             }elseif(!in_array($ext,$allowed)){
                 //todo message: not a valid format
@@ -118,7 +118,7 @@ class UserController
                 $allowed =  array('gif','png' ,'jpg');
                 $ext = pathinfo($_FILES['fileToUpload']['name'], PATHINFO_EXTENSION);
                 if(in_array($ext,$allowed)){
-                    $profilbild = "/uploads/$username.$ext";
+                    $profilbild = "./uploads/$username.$ext";
                 }
                 move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $profilbild);
             }
