@@ -144,7 +144,7 @@ var RegisForm = {
         });
 
         $('#emailRegis').focus(function () {
-            $('#hints')[0].innerHTML = 'Enter a valid Email adress. Example: abc@abc.ch';
+            $('#hints')[0].innerHTML = 'Enter a valid Email adress. Example: abc@abc.ch. No "." allowerd inbetween the first part of the mail. Example: Janik.inder@gmail.ch ';
             $('#hints').removeClass('hidden');
         }).blur(function(){
             $('#hints').addClass('hidden');
