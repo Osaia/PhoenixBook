@@ -1,4 +1,7 @@
+
 <form id="registerform" class="form-horizontal" action="/user/doCreate" method="post" enctype="multipart/form-data">
+	<h2>Register</h2>
+
 	<div class="component" data-html="true">
 		<div class="form-group">
 			<label class="col-md-2 control-label" for="usernameRegis">Username</label>
