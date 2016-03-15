@@ -15,7 +15,7 @@ class entriesController
     }
 
     public function create() {
-        $userid = $_SESSION['id'];
+        $userid = $_SESSION['userid'];
         $txt = $_POST['textField'];
         $date = date('Y M d');
         $bild = $_POST['uploadPicture'];
