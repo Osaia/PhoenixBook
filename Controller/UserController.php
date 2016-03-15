@@ -36,11 +36,11 @@ class UserController
             $email = $_POST['email'];
             $password = $_POST['password'];
 
-            $profilbild = "-";
+            $profilbild = "/uploads/default.jpg";
 
             if(isset($_FILES['fileToUpload']))
             {
-                $profilbild = "uploads/$username.jpg";
+                $profilbild = "/uploads/$username.jpg";
                 move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $profilbild);
             }
             if($this->validate($username, $name, $surname, $email,$password)){
@@ -105,7 +105,7 @@ class UserController
             $name = (!isset($_POST['name'])) ? $user->name : $_POST['name'];
             $surname = (!isset($_POST['surname'])) ? $user->surname : $_POST['surname'];
             $password = (!isset($_POST['password'])) ? $user->password : sha1($_POST['password']);
-            $profilbild = "uploads/$username.jpg";
+            $profilbild = "/uploads/$username.jpg";
 
 
 

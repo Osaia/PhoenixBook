@@ -16,10 +16,10 @@
                      <div class="entries">
                         <div class="entries-header">
                             <div class="col-xs-1 col-ld-1">
-                                <img class="media-object profile-picture" src="'.$entry["user_id"].'" alt="Pic">
+                                <img class="media-object profile-picture" src="'.$entry["profilbild"].'" alt="Pic">
                             </div>
                             <div class="col-xs-2 col-ld-2">
-                                <h5 class="media-heading">'.$entry["user_id"].'</h5>
+                                <h5 class="media-heading">'.$entry["username"]. '</h5>
                             </div>';
 //                            <div class="col-xs-2 col-ld-2 col-md-offset-7">
 //                                <p>'.$entry["likes"].'</p>
