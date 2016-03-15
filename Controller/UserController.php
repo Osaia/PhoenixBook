@@ -62,8 +62,9 @@ class UserController
 
     }
 
-    public function validate($un, $n, $sn, $em, $pwd, $noemneed){
-        $emailPat = '/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/';
+
+    public function validate($un, $n, $sn, $em, $pwd){
+        $emailPat = '/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,40}$/';
         $usernamePat = '/^[a-zA-Z0-9][a-zA-Z0-9_]{3,29}$/';
         $namePat = '/^[a-zA-Z0-9_äÄöÖüÜß]{3,20}$/';
         $pwdPat = '/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{4,8}$/';

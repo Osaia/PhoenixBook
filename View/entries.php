@@ -1,19 +1,14 @@
 <?php
 if(isset($_SESSION['userid'])){
-    echo'
-    <div ID="entriesWrapper" class="col-xs-12 col-ld-12">
+?>
+
+<div ID="entriesWrapper" class="col-xs-12 col-ld-12">
         <div id="entries-background" class="col-xs-12 col-ld-12">
             <div class="col-xs-9 col-ld-9">
                  <div class="col-xs-9 col-ld-9 col-md-offset-1" id="entries-container">
-    ';
-    //<?php
-
-//                    echo '<pre>';
-//                    var_dump($_SESSION);
-//                    echo '</pre>';
-    $controller = new entriesController();
-    $model = new EntrysModel();
-    $entries = $model->show(100);
+                     <?php
+                        $model = new EntrysModel();
+                        $entries = $model->show(100);
 
     foreach($entries as $entry) {
         echo '

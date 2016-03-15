@@ -127,7 +127,7 @@ class UserModel extends Model
             // Ersten Datensatz aus dem Reultat holen
             $row = $result->fetch_object();
 
-            if($row->password ==  sha1($pwd)){
+            if(isset($row->password) && $row->password ==  sha1($pwd)){
                 echo reset($result);
                 return true;
             }else{
