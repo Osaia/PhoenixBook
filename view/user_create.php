@@ -6,6 +6,7 @@
 		<div class="form-group">
 			<label class="col-md-2 control-label" for="usernameRegis">Username</label>
 			<div class="col-md-4">
+				<span class="label label-danger">Required</span>
 				<input id="usernameRegis" name="username" type="text" placeholder="Username" class="form-control input-md">
 			</div>
 		</div>
@@ -24,18 +25,21 @@
 		<div class="form-group">
 		  <label class="col-md-2 control-label" for="emailRegis">Mail</label>
 		  <div class="col-md-4">
-		  	<input id="emailRegis" name="email" type="text" placeholder="Email" class="form-control input-md">
+			  <span class="label label-danger">Required</span>
+			  <input id="emailRegis" name="email" type="text" placeholder="Email" class="form-control input-md">
 		  </div>
 		</div>
 		<div class="form-group">
 		  <label class="col-md-2 control-label" for="passwordRegis">Password</label>
 		  <div class="col-md-4">
-		  	<input id="passwordRegis" name="password" type="password" placeholder="Password" class="form-control input-md">
+			  <span class="label label-danger">Required</span>
+			  <input id="passwordRegis" name="password" type="password" placeholder="Password" class="form-control input-md">
 		  </div>
 		</div>
 		<div class="form-group">
 			<label class="col-md-2 control-label" for="password2Regis">Repeat Password</label>
 			<div class="col-md-4">
+				<span class="label label-danger">Required</span>
 				<input id="password2Regis" name="password2" type="password" placeholder="Repeat Password" class="form-control input-md">
 			</div>
 		</div>

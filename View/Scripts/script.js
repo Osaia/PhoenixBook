@@ -17,9 +17,31 @@ var loginForm = {
             console.log('out');
         });
         $("#usernameLogin").focus(function() {
-            console.log('in');
+
         }).blur(function() {
-            console.log('out');
+            $('#loginNotification').addClass('hidden');
+
+            $.ajax({
+                    method: 'POST',
+                    data: {username: $('#usernameLogin').val(), type: "user"},
+                    url: '/user/verify'
+                })
+                .done(function(worked){
+                    console.log(worked);
+                    if(worked == "notexists"){
+                        $('#submitLogin').prop( "disabled", true );
+
+                        $('#loginNotification')[0].innerHTML = 'Sorry, but a user with that Email adress already exists in the database';
+                        $('#loginNotification').removeClass('hidden');
+
+                        $('#usernameLogin')[0].className = 'form-control onError';
+                    }else{
+                        $('#submitLogin').prop( "disabled", false );
+
+                        $('#loginNotification').addClass('hidden');
+                        $('#usernameLogin')[0].className = 'form-control onSuccess';
+                    }
+                });
         });
     }
 
@@ -34,7 +56,7 @@ var RegisForm = {
     //Properties OF: Register Form
 
     //Only emails allowed
-    patEmail: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+    patEmail: /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,40}$/,
     //A regexp for general username entry. Which doesn't allow special characters ' +
     //'other than underscore. ' +    'Username must be of length ranging(3-29). ' +
     //'starting letter should be a ' +
@@ -133,8 +155,9 @@ var RegisForm = {
                 })
                 .done(function(worked){
                     console.log(worked);
-                    if(RegisForm.patUsername.test(this.value) == true && worked == "notexists"){
-                        //exist = false;
+                    console.log($('#emailRegis').val());
+                    console.log(RegisForm.patEmail.test($('#emailRegis').val()));
+                    if(RegisForm.patEmail.test($('#emailRegis').val()) == true && worked == "notexists"){
                         $('#emailRegis')[0].className = 'form-control input-md';
                         $('#emailRegis').addClass('onSuccess');
                         $('#emailNotification').addClass('hidden');
@@ -216,7 +239,7 @@ var RegisForm = {
 }
 
 /* Klasse Entries
-************************/
+ ************************/
 
 var Entries = {
 

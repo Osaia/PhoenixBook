@@ -41,6 +41,9 @@
                         <span>Why you no account yet? <a href="/user/create">Register Now</a></span>
 
                     </div>
+                    <div id="loginNotification" class="hidden">
+                        hello
+                    </div>
                 </form>
 
             </div>
