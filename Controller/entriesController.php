@@ -22,12 +22,18 @@ class entriesController
         $bildpath = "-";
         $entries = $entriesModel->getCount() + 1;
 
+        $allowed =  array('gif','png' ,'jpg');
+        $ext = pathinfo($_FILES['uploadPicture']['name'], PATHINFO_EXTENSION);
+        $tmppath = $_FILES['uploadPicture']['tmp_name'];
+        var_dump($_FILES['uploadPicture']);
 
-
-        if(isset($_FILES['fileToUpload']))
+        if(isset($_FILES['uploadPicture']) && in_array($ext,$allowed))
         {
-            $bildpath = "/uploads/bild" . $entries . ".jpg";
-            move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $bildpath);
+            $bildpath = "./uploads/bild" . $entries . "." .  $ext;
+            $test = move_uploaded_file($tmppath, $bildpath);
+            echo $test;
+        }elseif(!in_array($ext,$allowed)){
+            //todo message: not a valid format
         }
 //        $likes = 0;
 

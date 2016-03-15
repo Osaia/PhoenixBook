@@ -38,7 +38,7 @@ if(isset($_SESSION['userid'])){
                                 ' . $entry["text"] . '
                             </p>
                             ';
-        if (isset($profilbild)) {
+        if ($entry['bild'] != "-") {
             echo '<div><img src="'.$entry["bild"].'"></div>';
         };
         echo '
@@ -49,7 +49,7 @@ if(isset($_SESSION['userid'])){
     echo'
              </div>
             <div class="col-xs-3 col-ld-3 sidebar-top">
-                <form method="post" action="entries/create" id="newEntryForm" enctype="multipart/form-data">
+                <form method="post" action="/entries/create" id="newEntryForm" enctype="multipart/form-data">
                     <div id="sidebar-big" class="col-xs-10 col-ld-10">
                         <div class="btn-open-sidebar">
                             <button id="open" type="button" class="btn btn-default" aria-label="Left Align">
@@ -60,11 +60,11 @@ if(isset($_SESSION['userid'])){
                             <textarea class="txtarea" name="textField" placeholder="Text..."></textarea>
                         </div>
                         <div class="col-xs-10 col-ld-10 col-md-offset-1">
+                            <div class="col-md-4">
+                                <input type="file" name="uploadPicture" id="fileToUploadRegis" class="">
+                            </div>
                             <button type="submit" name="uploadText" class="btn btn-default" aria-label="Left Align">
                                 <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-                            </button>
-                            <button type="button" name="uploadPicture" class="btn btn-default" aria-label="Left Align">
-                                <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
                             </button>
                         </div>
                     </div>

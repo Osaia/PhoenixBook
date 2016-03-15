@@ -40,7 +40,7 @@ class EntrysModel extends Model
 
     public function show($max){
         //$uQuery = "SELECT username FROM user WHERE username='".$username."'";
-        $query = "select e.*, u.username, u.profilbild from entrys as e JOIN user as u on e.user_id = u.id LIMIT 0, $max;";
+        $query = "select e.*, u.username, u.profilbild from entrys as e JOIN user as u on e.user_id = u.id ORDER BY e.id DESC LIMIT 0, 100";
 
         $statement = ConnectionHandler::getConnection()->prepare($query);
 
