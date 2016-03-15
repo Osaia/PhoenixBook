@@ -38,11 +38,17 @@ class UserController
 
             $profilbild = "/uploads/default.jpg";
 
-            if(isset($_FILES['fileToUpload']))
+            $allowed =  array('gif','png' ,'jpg');
+            $ext = pathinfo($_FILES['fileToUpload']['name'], PATHINFO_EXTENSION);
+
+            if(isset($_FILES['fileToUpload']) && in_array($ext,$allowed))
             {
-                $profilbild = "/uploads/$username.jpg";
+                $profilbild = "/uploads/$username.$ext";
                 move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $profilbild);
+            }elseif(!in_array($ext,$allowed)){
+                //todo message: not a valid format
             }
+
             if($this->validate($username, $name, $surname, $email,$password)){
 
                 $userModel = new UserModel();
@@ -105,12 +111,14 @@ class UserController
             $name = (!isset($_POST['name'])) ? $user->name : $_POST['name'];
             $surname = (!isset($_POST['surname'])) ? $user->surname : $_POST['surname'];
             $password = (!isset($_POST['password'])) ? $user->password : sha1($_POST['password']);
-            $profilbild = "/uploads/$username.jpg";
+            $profilbild = $user->profilbild;
 
-
-
-            if(isset($_FILES['fileToUpload']))
-            {
+            if(isset($_FILES['fileToUpload'])){
+                $allowed =  array('gif','png' ,'jpg');
+                $ext = pathinfo($_FILES['fileToUpload']['name'], PATHINFO_EXTENSION);
+                if(in_array($ext,$allowed)){
+                    $profilbild = "/uploads/$username.$ext";
+                }
                 move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $profilbild);
             }
 
