@@ -55,4 +55,8 @@
 		  </div>
 		</div>
 	</div>
+
+	<div id="regisNotification">
+		Meldung
+	</div>
 </form>

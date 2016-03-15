@@ -31,19 +31,24 @@ var loginForm = {
  */
 
 var RegisForm = {
-    //Properties
+    //Properties OF: Register Form
+
+    //Only emails allowed
     patEmail: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
     //A regexp for general username entry. Which doesn't allow special characters ' +
     //'other than underscore. ' +    'Username must be of length ranging(3-30). ' +
     //'starting letter should be a ' +
     //'number or a character.
     patUsername: /^[a-zA-Z0-9_äÄöÖüÜß][a-zA-Z0-9_]{3,29}$/,
+    //Should be a Name with between 3 and 20 letters. Permited is the use of a-z lowercase and uppercase, as well as the following Chars for
+    //german lenguage: Ä Ü Ö ß
     patName: /^[a-zA-Z0-9_äÄöÖüÜß]{3,20}$/,
     //Password expresion that requires one lower case letter,
     //one upper case letter, one digit, 6-13 length, and no spaces.
     patPwd: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{4,8}$/,
 
 
+    //Init Function for this object. It initiates all needed Event listeners for the different part of the Form
     init: function(){
         $('#registerform').submit(function(event){
             //var form = $(this);
@@ -79,7 +84,8 @@ var RegisForm = {
         });
 
 
-
+        //When the field 'Username' is entered, and then left, an AJAX CALL makes shure that the selected username doesnt already exist in the database.
+        //In case it exists, it will mark the field Red
         $('#usernameRegis').focus(function(){
             //alert('in');
         }).blur(function(){
@@ -94,6 +100,7 @@ var RegisForm = {
                         //exist = false;
                         $('#usernameRegis')[0].className = 'form-control input-md';
                         $('#usernameRegis').addClass('onSuccess');
+                        //MELDUNG APPEARS
                     }else{
                         //exist = true;
                         $('#usernameRegis')[0].className = 'form-control input-md';
@@ -150,6 +157,10 @@ var RegisForm = {
             }
         });
         //FILE UPLOAD ??
+    },
+
+    notifications: function(){
+        $('#regisNotification');
     },
 
     finalValidation: function(){
