@@ -52,6 +52,7 @@ class UserModel extends Model
         $statement = ConnectionHandler::getConnection()->prepare($query);
         $statement->bind_param('sssss', $name, $surname, $password, $profilbild, $username);
 
+
         if (!$statement->execute()) {
             throw new Exception($statement->error);
         }

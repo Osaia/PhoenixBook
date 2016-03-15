@@ -114,6 +114,7 @@ class UserController
             $password = (!isset($_POST['password'])) ? $user->password : sha1($_POST['password']);
             $profilbild = $user->profilbild;
 
+
             if(isset($_FILES['fileToUpload'])){
                 $allowed =  array('gif','png' ,'jpg');
                 $ext = pathinfo($_FILES['fileToUpload']['name'], PATHINFO_EXTENSION);
@@ -123,7 +124,7 @@ class UserController
                 move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $profilbild);
             }
 
-            $userModel->update($name, $surname, $password, $profilbild, true);
+            $userModel->update($username, $name, $surname, $password, $profilbild);
         }
 
         // Anfrage an die URI /user weiterleiten (HTTP 302)
