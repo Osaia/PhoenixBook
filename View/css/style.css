@@ -42,6 +42,13 @@ h1,h2,h3,h4{
   padding: 50px 20px;
 }
 
+#logout{
+  position: absolute;
+  top:0;
+  right: 0;
+}
+
+
 #login span{
   margin: 0 20px;
   margin-top: 50px;
