@@ -33,10 +33,20 @@ class entriesController
 
 
         $entriesModel->create($userid, $txt, $date, $bildpath);
+        header('Location: /entries');
     }
 
     public function find($userid){
 
+    }
+
+    public function delete()
+    {
+        $entryModel = new EntrysModel();
+        $entryModel->deleteById($_GET['id']);
+
+        // Anfrage an die URI /user weiterleiten (HTTP 302)
+        header('Location: /entries');
     }
 
 //    public function like() {

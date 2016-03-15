@@ -23,12 +23,10 @@ if(isset($_SESSION['userid'])){
                             </div>
                             <div class="col-xs-2 col-ld-2">
                                 <h5 class="media-heading">'.$entry["username"]. '</h5>
-                            </div>';
-//                            <div class="col-xs-2 col-ld-2 col-md-offset-7">
-//                                <p>'.$entry["likes"].'</p>
-//                                <a href=""><p><span class="glyphicon glyphicon-heart"></span></p></a>
-//                            </div>
-        echo'
+                            </div>
+                            <div class="col-xs-2 col-ld-2 col-md-offset-7">
+                                <a href=""><p><span class="glyphicon glyphicon-remove"></span></p></a>
+                            </div>
                         </div>
                         <div class="entries-txt">
                             <p class="txt-hidden">
